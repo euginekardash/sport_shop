@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sport_shop/common/styles/spacing_styles.dart';
+import 'package:sport_shop/features/authentication/screens/password/forget_password.dart';
 import 'package:sport_shop/features/authentication/screens/signup/signup.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
 import 'package:sport_shop/utils/constants/image_strings.dart';
@@ -75,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                         ),
 
                         ///Forget password
-                        TextButton(onPressed: (){}, child: const Text("Forget password?"))
+                        TextButton(onPressed: ()=> Get.to(()=> const ForgetPassword()), child: const Text("Forget password?"))
                       ],
                     ),
                     const SizedBox(height: MySizes.spaceBtwSections,),
