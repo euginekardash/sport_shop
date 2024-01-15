@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:sport_shop/features/authentication/screens/signup/verify_email.dart';
 import 'package:sport_shop/features/authentication/screens/signup/widgets/terms_conditions_checkbox.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 
@@ -78,8 +81,8 @@ class MySignupForm extends StatelessWidget {
         const MyTermsAndConditionCheckBox(),
         const SizedBox(height: MySizes.spaceBtwSections,),
 
-        ///SignIn button
-        SizedBox(width: double.infinity, child: ElevatedButton(onPressed: (){}, child: const Text("Create Account"),),)
+        ///Sign Up button
+        SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => Get.to(() =>const VerifyEmailScreen()), child: const Text("Create Account"),),)
       ],
     ),
     );
