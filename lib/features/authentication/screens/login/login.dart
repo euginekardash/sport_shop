@@ -5,6 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:sport_shop/common/styles/spacing_styles.dart';
 import 'package:sport_shop/features/authentication/screens/password/forget_password.dart';
 import 'package:sport_shop/features/authentication/screens/signup/signup.dart';
+import 'package:sport_shop/navigation_menu.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
 import 'package:sport_shop/utils/constants/image_strings.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
@@ -82,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: MySizes.spaceBtwSections,),
 
                     ///Sign in button
-                    SizedBox(width: double.infinity ,child: ElevatedButton(onPressed: (){}, child: const Text("Sign in"))),
+                    SizedBox(width: double.infinity ,child: ElevatedButton(onPressed: () => Get.to(() =>const NavigationMenu()), child: const Text("Sign in"))),
                     const SizedBox(height: MySizes.spaceBtwItems,),
 
                     ///Create account button
