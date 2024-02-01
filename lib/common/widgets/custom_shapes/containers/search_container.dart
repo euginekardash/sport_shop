@@ -7,13 +7,20 @@ import 'package:sport_shop/utils/helpers/helper_functions.dart';
 
 class MySearchContainer extends StatelessWidget {
   const MySearchContainer({
-    super.key, required this.text, this.icon = Iconsax.search_normal, this.showBackground = true, this.showBorder = true, this.onTap,
+    super.key,
+    required this.text,
+    this.icon = Iconsax.search_normal,
+    this.showBackground = true,
+    this.showBorder = true,
+    this.onTap,
+    this.padding = const EdgeInsets.symmetric(horizontal: MySizes.defaultSpace),
   });
 
   final String text;
   final IconData? icon;
   final bool showBackground, showBorder;
   final VoidCallback? onTap;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,7 @@ class MySearchContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: MySizes.defaultSpace),
+        padding: padding,
         child: Container(
           width: MyDeviceUtils.getScreenWidth(context),
           padding:const EdgeInsets.all(MySizes.md),
