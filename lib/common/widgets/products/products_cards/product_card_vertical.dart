@@ -23,7 +23,7 @@ class ProductCardVertical extends StatelessWidget {
       onTap: (){},
       child: Container(
         width: 180,
-        padding: EdgeInsets.all(1),
+        padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [ShadowStile.verticalProductShadow],
           borderRadius: BorderRadius.circular(MySizes.productImageRadius),
@@ -46,7 +46,7 @@ class ProductCardVertical extends StatelessWidget {
                     child: MyRoundedContainer(
                       radius: MySizes.sm,
                       backgroundColor: MyColors.secondary.withOpacity(0.8),
-                      padding: EdgeInsets.symmetric(horizontal: MySizes.sm, vertical: MySizes.xs),
+                      padding: const EdgeInsets.symmetric(horizontal: MySizes.sm, vertical: MySizes.xs),
                       child: Text("25%" ,style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.black),),
                     ),
                   ),
@@ -60,14 +60,17 @@ class ProductCardVertical extends StatelessWidget {
 
             ///details
             const Padding(
-                padding: EdgeInsets.only(left: MySizes.sm),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    MyProductTitleText(title: 'Football ball', smallSize: true,),
-                    SizedBox(height: MySizes.spaceBtwItems/2,),
-                    MyBrandTitleWithVerifiedIcon(title: 'Nike',),
-                  ],
+                padding: EdgeInsets.symmetric(horizontal: MySizes.sm),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MyProductTitleText(title: 'Football ball', smallSize: true,),
+                      SizedBox(height: MySizes.spaceBtwItems/2,),
+                      MyBrandTitleWithVerifiedIcon(title: 'Nike',),
+                    ],
+                  ),
                 ),
             ),
             const Spacer(),
@@ -76,8 +79,8 @@ class ProductCardVertical extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ///Price
-                Padding(
-                  padding: const EdgeInsets.only(left: MySizes.sm),
+                const Padding(
+                  padding: EdgeInsets.only(left: MySizes.sm),
                   child: MyProductPriceText(price: '35.0', isLarge: true,),
                 ),
 

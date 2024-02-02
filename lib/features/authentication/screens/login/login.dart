@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sport_shop/common/styles/spacing_styles.dart';
 import 'package:sport_shop/features/authentication/screens/password/forget_password.dart';
@@ -9,7 +8,6 @@ import 'package:sport_shop/navigation_menu.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
 import 'package:sport_shop/utils/constants/image_strings.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
-import 'package:sport_shop/utils/constants/text_strings.dart';
 import 'package:sport_shop/utils/helpers/helper_functions.dart';
 
 class LoginScreen extends StatelessWidget {

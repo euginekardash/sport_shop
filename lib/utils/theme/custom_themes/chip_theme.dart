@@ -15,7 +15,7 @@ class MyChipTheme{
     disabledColor: Colors.grey,
     labelStyle: TextStyle(color: Colors.white),
     selectedColor: Colors.blue,
-    padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12),
+    padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 12),
     checkmarkColor: Colors.white,
   );
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 import 'package:sport_shop/utils/device/device_utility.dart';
 import 'package:get/get.dart';
@@ -24,6 +23,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: MySizes.md),
       child: AppBar(
+        centerTitle: false,
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(onPressed: () => Get.back(), icon: const Icon (Icons.arrow_back))

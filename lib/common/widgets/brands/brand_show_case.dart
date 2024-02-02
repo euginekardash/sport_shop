@@ -18,11 +18,11 @@ class MyBrandShowcase extends StatelessWidget {
       showBorder: true,
       borderColor: MyColors.darkGrey,
       backgroundColor: Colors.transparent,
-      padding: EdgeInsets.all(MySizes.sm),
-      margin: EdgeInsets.only(bottom: MySizes.spaceBtwItems),
+      padding: const EdgeInsets.all(MySizes.sm),
+      margin: const EdgeInsets.only(bottom: MySizes.spaceBtwItems),
       child: Column(
         children: [
-          MyBrandCard(showBorder: false),
+          const MyBrandCard(showBorder: false),
           const SizedBox(height: MySizes.spaceBtwItems,),
 
           Row(

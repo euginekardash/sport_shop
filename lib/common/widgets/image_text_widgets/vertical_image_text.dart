@@ -31,7 +31,7 @@ class MyVerticalmaheText extends StatelessWidget {
             Container(
               width: 56,
               height: 56,
-              padding: EdgeInsets.all(MySizes.sm),
+              padding: const EdgeInsets.all(MySizes.sm),
               decoration: BoxDecoration(
                   color: backgroundColor ?? (dark ? MyColors.black : MyColors.white),
                   borderRadius: BorderRadius.circular(100)

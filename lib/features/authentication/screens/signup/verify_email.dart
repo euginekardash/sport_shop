@@ -22,7 +22,7 @@ class VerifyEmailScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(MySizes.defaultSpace),
+          padding: const EdgeInsets.all(MySizes.defaultSpace),
           child: Column(
             children: [
               ///Image

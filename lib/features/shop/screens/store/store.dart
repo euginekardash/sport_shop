@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sport_shop/common/widgets/appbar/appbar.dart';
 import 'package:sport_shop/common/widgets/appbar/tabbar.dart';
-import 'package:sport_shop/common/widgets/brands/brand_show_case.dart';
-import 'package:sport_shop/common/widgets/containers/rounded_container.dart';
 import 'package:sport_shop/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:sport_shop/common/widgets/images/circular_image.dart';
 import 'package:sport_shop/common/widgets/layouts/grid_layout.dart';
 import 'package:sport_shop/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:sport_shop/common/widgets/products/products_cards/brand_card.dart';
-import 'package:sport_shop/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
 import 'package:sport_shop/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
-import 'package:sport_shop/utils/constants/enums.dart';
-import 'package:sport_shop/utils/constants/image_strings.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 import 'package:sport_shop/utils/helpers/helper_functions.dart';
 
@@ -26,7 +20,7 @@ class StoreScreen extends StatelessWidget {
       length: 5,
       child: Scaffold(
         appBar: MyAppBar(
-          title: Text('Store'),
+          title: const Text('Store'),
           actions: [
             MyCartCounterIcon(onPressed: (){},),
           ],
@@ -41,7 +35,7 @@ class StoreScreen extends StatelessWidget {
               expandedHeight: 440,
 
               flexibleSpace: Padding(
-                padding: EdgeInsets.all(MySizes.defaultSpace),
+                padding: const EdgeInsets.all(MySizes.defaultSpace),
                 child: ListView(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -62,7 +56,7 @@ class StoreScreen extends StatelessWidget {
                 ),
               ),
               ///Tabs
-              bottom: MyTabBar(
+              bottom: const MyTabBar(
                 tabs: [
                   Tab(child: Text('Sports')),
                   Tab(child: Text('Sports')),
@@ -75,6 +69,7 @@ class StoreScreen extends StatelessWidget {
             ),
           ];
         },
+            ///body
           body: const TabBarView(
             children: [
               MyCategoryTab(),

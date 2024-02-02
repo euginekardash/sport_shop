@@ -12,7 +12,7 @@ class MyCategoryTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       children: [
         Padding(
           padding: const EdgeInsets.all(MySizes.defaultSpace),
@@ -27,7 +27,7 @@ class MyCategoryTab extends StatelessWidget {
               MySectionHeading(title: 'You might like', showActionButton: true, onPressed: () {}),
               const SizedBox(height: MySizes.spaceBtwItems,),
 
-              MyGridLayout(itemCount: 4, itemBuilder: (_, index) => ProductCardVertical()),
+              MyGridLayout(itemCount: 4, itemBuilder: (_, index) => const ProductCardVertical()),
               const SizedBox(height: MySizes.spaceBtwItems,),
             ],
           ),
