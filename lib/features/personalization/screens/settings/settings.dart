@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sport_shop/common/widgets/appbar/appbar.dart';
 import 'package:sport_shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:sport_shop/common/widgets/list_tile/setting_menu_tile.dart';
 import 'package:sport_shop/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
+import 'package:sport_shop/features/personalization/screens/profile/profile.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -23,7 +25,7 @@ class SettingsScreen extends StatelessWidget {
                 MyAppBar(title: Text('Account', style: Theme.of(context).textTheme.headlineMedium!.apply(color: Colors.white),),),
 
                 ///profile
-                const MyUserProfileTile(),
+                MyUserProfileTile(onPressed: () => Get.to(() => const ProfileScreen()),),
                 const SizedBox(height: MySizes.spaceBtwSections,),
               ],
             )

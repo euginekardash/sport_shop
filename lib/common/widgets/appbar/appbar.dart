@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 import 'package:sport_shop/utils/device/device_utility.dart';
 import 'package:get/get.dart';
+import 'package:sport_shop/utils/helpers/helper_functions.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
   const MyAppBar({
@@ -26,7 +27,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
         centerTitle: false,
         automaticallyImplyLeading: false,
         leading: showBackArrow
-            ? IconButton(onPressed: () => Get.back(), icon: const Icon (Icons.arrow_back))
+            ? IconButton(onPressed: () => Get.back(), icon: CircleAvatar(child: Icon (Icons.arrow_back, color:MyHelperFunctions.isDarkMode(context) ? Colors.black : Colors.white,)))
             : leadingIcon != null ?  IconButton(onPressed: leadingOnPressed, icon: Icon (leadingIcon)) : null,
         title: title,
         actions: actions,
