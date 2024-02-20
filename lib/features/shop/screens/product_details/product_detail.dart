@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import 'package:sport_shop/common/widgets/appbar/appbar.dart';
@@ -11,6 +12,7 @@ import 'package:sport_shop/features/shop/screens/product_details/widgets/product
 import 'package:sport_shop/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:sport_shop/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:sport_shop/features/shop/screens/product_details/widgets/rating_share_widget.dart';
+import 'package:sport_shop/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
 import 'package:sport_shop/utils/constants/image_strings.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
@@ -69,7 +71,7 @@ class ProductDetail extends StatelessWidget {
                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                  children: [
                    const MySectionHeading(title: 'Reviews(199)'),
-                   IconButton(onPressed: (){}, icon: const Icon(Iconsax.arrow_right_3, size: 18,))
+                   IconButton(onPressed: () => Get.to(() => const ProductReviewsScreen()), icon: const Icon(Iconsax.arrow_right_3, size: 18,))
                  ],
                ),
                const SizedBox(height: MySizes.spaceBtwSections,),

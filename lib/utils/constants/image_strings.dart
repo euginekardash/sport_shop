@@ -8,6 +8,11 @@ class MyImages{
   static const String google = "assets/logos/google_icon.png";
   static const String facebook = "assets/logos/facebook_icon.png";
 
+  //Product reviews
+  static const String userProfileImage1 = 'assets/images/reviews/review_profile_image_1.jpg';
+  static const String userProfileImage2 = 'assets/images/reviews/review_profile_image_2.jpg';
+  static const String userProfileImage3 = 'assets/images/reviews/review_profile_image_3.jpg';
+
   // --On Boarding Images
   static const String onBoardingImage1 = "assets/images/on_boarding_images/dazzle-line-sitting-man.png";
   static const String onBoardingImage2 = "assets/images/on_boarding_images/dazzle-line-man-holding-coin-and-piggy-bank.gif";
