@@ -6,6 +6,7 @@ import 'package:sport_shop/common/widgets/custom_shapes/containers/primary_heade
 import 'package:sport_shop/common/widgets/list_tile/setting_menu_tile.dart';
 import 'package:sport_shop/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
+import 'package:sport_shop/features/personalization/screens/address/adress.dart';
 import 'package:sport_shop/features/personalization/screens/profile/profile.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 
@@ -39,7 +40,7 @@ class SettingsScreen extends StatelessWidget {
                   const MySectionHeading(title: 'Account settings'),
                   const SizedBox(height: MySizes.spaceBtwSections,),
 
-                  SettingsMenuTile(icon: Iconsax.safe_home, title: 'My addresses', subtitle: 'Set shopping delivery address',onTap: (){},),
+                  SettingsMenuTile(icon: Iconsax.safe_home, title: 'My addresses', subtitle: 'Set shopping delivery address',onTap: () => Get.to(() => const UserAddressScreen()),),
                   SettingsMenuTile(icon: Iconsax.shopping_cart, title: 'My cart', subtitle: 'Add, remove products and move to checkout',onTap: (){},),
                   SettingsMenuTile(icon: Iconsax.bag_tick, title: 'My orders', subtitle: 'In-progress and completed orders',onTap: (){},),
                   SettingsMenuTile(icon: Iconsax.bank, title: 'Bank account', subtitle: 'Withdraw balance to registered bank account',onTap: (){},),
