@@ -54,7 +54,7 @@ class ProductCardVertical extends StatelessWidget {
                   ),
 
                   ///fav
-                  const Positioned(top: 0, right: 0, child: CircularIcon(icon: Iconsax.heart5, color: Colors.red,))
+                  const Positioned(top: 0, right: 0, child: CircularIcon(icon: Iconsax.heart5, color: Colors.red,)),
                 ],
               ),
             ),
