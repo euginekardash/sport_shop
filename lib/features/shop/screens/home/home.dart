@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sport_shop/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:sport_shop/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:sport_shop/common/widgets/layouts/grid_layout.dart';
 import 'package:sport_shop/common/widgets/products/products_cards/product_card_vertical.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
+import 'package:sport_shop/features/shop/screens/all_products/all_products.dart';
 import 'package:sport_shop/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:sport_shop/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:sport_shop/features/shop/screens/home/widgets/promo_slider.dart';
@@ -59,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: MySizes.spaceBtwSections,),
 
                   ///Heading
-                  MySectionHeading(title: 'Popular Products', onPressed: (){},),
+                  MySectionHeading(title: 'Popular Products', onPressed: () => Get.to(() => const AllProducts()), showActionButton: true,),
                   const SizedBox(height: MySizes.spaceBtwItems,),
 
                   ///Popular Products

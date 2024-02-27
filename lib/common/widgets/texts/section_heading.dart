@@ -23,8 +23,9 @@ class MySectionHeading extends StatelessWidget {
         Text(title ,
           style: Theme.of(context).textTheme.headlineSmall!.apply(color: textColor),
           maxLines: 1,
-          overflow: TextOverflow.ellipsis,),
-        if(showActionButton) TextButton(onPressed: (){}, child: Text(buttonTitle))
+          overflow: TextOverflow.ellipsis,
+        ),
+        if(showActionButton) TextButton(onPressed: onPressed, child: Text(buttonTitle))
       ],
     );
   }

@@ -32,7 +32,7 @@ class ProductCardHorizontal extends StatelessWidget {
             height: 120,
             padding: const EdgeInsets.all(MySizes.sm),
             backgroundColor: dark ? MyColors.dark : MyColors.light,
-            child: Stack(
+            child: Stack( 
               children: [
                 SizedBox(
                     height: 120,
