@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:sport_shop/common/widgets/appbar/appbar.dart';
 import 'package:sport_shop/common/widgets/layouts/grid_layout.dart';
 import 'package:sport_shop/common/widgets/products/products_cards/product_card_vertical.dart';
+import 'package:sport_shop/common/widgets/products/sortable/sortable_products.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 
 class AllProducts extends StatelessWidget {
@@ -14,26 +15,10 @@ class AllProducts extends StatelessWidget {
       appBar: MyAppBar(title: Text('Popular Products'), showBackArrow: true,),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(MySizes.defaultSpace),
-        child: Column(
-          children: [
-            DropdownButtonFormField(
-              decoration: const InputDecoration(prefixIcon: Icon(Iconsax.sort)),
-                items: [
-                  'Name',
-                  'Higher price',
-                  'Lower price',
-                  'Sale',
-                  'Newest',
-                  'Popularity'
-                ].map((option) => DropdownMenuItem(value: option, child: Text(option))).toList(),
-                onChanged: (value){}
-            ),
-            const SizedBox(height: MySizes.spaceBtwSections,),
-            
-            MyGridLayout(itemCount: 4, itemBuilder: (_, index) => ProductCardVertical()),
-          ],
-        ),
+        child: SortableProducts(),
       ),
     );
   }
 }
+
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sport_shop/common/widgets/appbar/appbar.dart';
 import 'package:sport_shop/common/widgets/appbar/tabbar.dart';
 import 'package:sport_shop/common/widgets/custom_shapes/containers/search_container.dart';
@@ -6,6 +7,7 @@ import 'package:sport_shop/common/widgets/layouts/grid_layout.dart';
 import 'package:sport_shop/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:sport_shop/common/widgets/products/products_cards/brand_card.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
+import 'package:sport_shop/features/shop/screens/brand/all_brands.dart';
 import 'package:sport_shop/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
@@ -46,7 +48,7 @@ class StoreScreen extends StatelessWidget {
                     const SizedBox(height: MySizes.spaceBtwSections,),
 
                     ///featured brands
-                    MySectionHeading(title: 'Featured Brands', showActionButton: true, onPressed: (){},),
+                    MySectionHeading(title: 'Featured Brands', showActionButton: true, onPressed: () => Get.to(() => const AllBrandsScreen()),),
                     const SizedBox(height: MySizes.spaceBtwItems/1.5,),
 
                     MyGridLayout(itemCount: 4,mainAxisExtent: 80, itemBuilder: (_, index) {
