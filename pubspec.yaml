@@ -40,6 +40,8 @@ dependencies:
 
   # Firebase
   firebase_core: ^2.24.2
+  firebase_auth: ^4.17.9
+  cloud_firestore: ^4.15.9
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +63,7 @@ flutter:
      - assets/images/products/
      - assets/images/user/
      - assets/images/reviews/
+     - assets/images/animations/
 
   #-------LOCAL FONTS---------#
   fonts:
