@@ -6,6 +6,7 @@ import 'package:sport_shop/common/widgets/custom_shapes/containers/primary_heade
 import 'package:sport_shop/common/widgets/list_tile/setting_menu_tile.dart';
 import 'package:sport_shop/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
+import 'package:sport_shop/data/repositories/authentication_repository.dart';
 import 'package:sport_shop/features/personalization/screens/address/adress.dart';
 import 'package:sport_shop/features/personalization/screens/profile/profile.dart';
 import 'package:sport_shop/features/shop/screens/order/order.dart';
@@ -76,7 +77,7 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: MySizes.spaceBtwSections,),
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(onPressed: (){}, child: const Text('Logout'),),
+                    child: OutlinedButton(onPressed: () => AuthenticationRepository.instance.logout(), child: const Text('Logout'),),
                   ),
                   const SizedBox(height: MySizes.spaceBtwSections * 2.5,),
                 ],
