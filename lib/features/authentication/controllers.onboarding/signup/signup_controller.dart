@@ -23,7 +23,7 @@ class SignupController extends GetxController {
 
   void signup() async {
     try {
-      MyFullScreenLoader.openLoadingDialog('tralala', 'assets/images/animations/loading.json');
+      MyFullScreenLoader.openLoadingDialog('Logging you in...', 'assets/images/animations/loading.json');
 
       final isConnected = await NetworkManager.instance.isConnected();
       if(!isConnected) {

@@ -34,7 +34,7 @@ class VerifyEmailController extends GetxController {
          timer.cancel();
          Get.off(() =>
              SuccessScreen(
-                 image: 'assets/images/animations/72462-check-register.json',
+                 image: 'assets/images/animations/free-icon-check-mark-4225683.png',
                  title: 'Your account is created!',
                  subTitle: 'Thank you! Now your account is successfully created.',
                  onPressed: () =>

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sport_shop/common/styles/spacing_styles.dart';
 import 'package:sport_shop/features/authentication/controllers.onboarding/login/login_controller.dart';
+import 'package:sport_shop/features/authentication/screens/login/widgets/social_buttons.dart';
 import 'package:sport_shop/features/authentication/screens/password/forget_password.dart';
 import 'package:sport_shop/features/authentication/screens/signup/signup.dart';
 import 'package:sport_shop/navigation_menu.dart';
@@ -120,34 +121,7 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: MySizes.spaceBtwSections,),
 
               ///Footer
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(border: Border.all(color: MyColors.grey), borderRadius: BorderRadius.circular(50)),
-                    child: IconButton(
-                      onPressed: (){},
-                      icon: const Image(
-                        width: MySizes.iconMd,
-                        height: MySizes.iconMd,
-                        image: AssetImage(MyImages.google),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: MySizes.spaceBtwItems,),
-                  Container(
-                    decoration: BoxDecoration(border: Border.all(color: MyColors.grey), borderRadius: BorderRadius.circular(50)),
-                    child: IconButton(
-                      onPressed: (){},
-                      icon: const Image(
-                        width: MySizes.iconMd,
-                        height: MySizes.iconMd,
-                        image: AssetImage(MyImages.facebook),
-                      ),
-                    ),
-                  ),
-                ],
-              )
+              const SocialButtons(),
             ],
           )
         ),
@@ -155,3 +129,5 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
+
