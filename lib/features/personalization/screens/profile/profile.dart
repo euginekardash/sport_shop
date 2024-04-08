@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:sport_shop/common/styles/shimmer.dart';
 import 'package:sport_shop/common/widgets/appbar/appbar.dart';
 import 'package:sport_shop/common/widgets/images/circular_image.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
@@ -31,8 +33,14 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    MyCircularImage(image: 'assets/images/user/user.png', width: 80, height: 80,),
-                    TextButton(onPressed: (){}, child: Text('Change profile picture', style: Theme.of(context).textTheme.labelMedium,)),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty ? networkImage : 'assets/images/user/user.png';
+                      return controller.imageUploading.value
+                       ? const ShimmerEffect(width: 80, height: 80, radius: 80,)
+                       : MyCircularImage(image: image, width: 90, height: 90, isNetworkImage: networkImage.isNotEmpty,);
+                    }),
+                    TextButton(onPressed: () => controller.uploadUserProfilePicture(), child: Text('Change profile picture', style: Theme.of(context).textTheme.labelMedium,)),
                   ],
                 ),
               ),

@@ -24,6 +24,7 @@ dependencies:
   connectivity_plus: ^5.0.2
   flutter_native_splash: ^2.3.2
   smooth_page_indicator: ^1.1.0
+  image_picker: ^1.0.7
 
 
   # Icons
@@ -44,6 +45,9 @@ dependencies:
   firebase_auth: ^4.17.9
   cloud_firestore: ^4.15.9
   google_sign_in: ^6.2.1
+  firebase_storage: ^11.7.0
+  cached_network_image: ^3.3.1
+
 
 dev_dependencies:
   flutter_test:
