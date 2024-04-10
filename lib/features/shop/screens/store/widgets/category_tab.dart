@@ -3,10 +3,13 @@ import 'package:sport_shop/common/widgets/brands/brand_show_case.dart';
 import 'package:sport_shop/common/widgets/layouts/grid_layout.dart';
 import 'package:sport_shop/common/widgets/products/products_cards/product_card_vertical.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
+import 'package:sport_shop/features/shop/models/category_model.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 
 class MyCategoryTab extends StatelessWidget {
-  const MyCategoryTab({super.key});
+  const MyCategoryTab({super.key, required this.category});
+
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {

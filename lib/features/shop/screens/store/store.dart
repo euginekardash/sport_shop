@@ -7,6 +7,7 @@ import 'package:sport_shop/common/widgets/layouts/grid_layout.dart';
 import 'package:sport_shop/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:sport_shop/common/widgets/products/products_cards/brand_card.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
+import 'package:sport_shop/features/shop/controllers/category_controller.dart';
 import 'package:sport_shop/features/shop/screens/brand/all_brands.dart';
 import 'package:sport_shop/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
@@ -18,8 +19,9 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
         appBar: MyAppBar(
           title: const Text('Store'),
@@ -58,28 +60,15 @@ class StoreScreen extends StatelessWidget {
                 ),
               ),
               ///Tabs
-              bottom: const MyTabBar(
-                tabs: [
-                  Tab(child: Text('Sports')),
-                  Tab(child: Text('Sports')),
-                  Tab(child: Text('Sports')),
-                  Tab(child: Text('Sports')),
-                  Tab(child: Text('Sports')),
-                ],
+              bottom: MyTabBar(tabs: categories.map((category) => Tab(child: Text(category.name))).toList()),
               )
 
-            ),
+
           ];
         },
             ///body
-          body: const TabBarView(
-            children: [
-              MyCategoryTab(),
-              MyCategoryTab(),
-              MyCategoryTab(),
-              MyCategoryTab(),
-              MyCategoryTab(),
-            ],
+          body: TabBarView(
+            children: categories.map((category) => MyCategoryTab(category: category,)).toList()
           )
         ),
       ),

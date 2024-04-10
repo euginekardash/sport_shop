@@ -27,6 +27,7 @@ class MyImages{
   static const String onBoardingImage2 = "assets/images/on_boarding_images/dazzle-line-man-holding-coin-and-piggy-bank.gif";
   static const String onBoardingImage3 = "assets/images/on_boarding_images/dazzle-line-girl-on-skate.gif";
 
+  //products
   static const String productImage1 = 'assets/images/products/Adidas_Football.png';
   static const String productImage2 = 'assets/images/products/nike-shoes.png';
   static const String productImage3 = 'assets/images/products/NikeAirJOrdonBlackRed.png';
@@ -40,5 +41,10 @@ class MyImages{
   static const String productImage11 = 'assets/images/products/product-jacket.png';
   static const String productImage12 = 'assets/images/products/product-jeans.png';
 
-
+  //categories
+  static const String sportIcon = 'assets/icons/categories/icons8-bowling-64.png';
+  static const String clothIcon = 'assets/icons/categories/icons8-tailors-dummy-64.png';
+  static const String shoeIcon = 'assets/icons/categories/icons8-shoes-64.png';
+  static const String toyIcon = 'assets/icons/categories/icons8-wooden-toy-car-50.png';
+  static const String furnitureIcon = 'assets/icons/categories/icons8-dining-chair-64.png';
 }
