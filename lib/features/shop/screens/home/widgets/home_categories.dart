@@ -27,7 +27,7 @@ class MyHomeCategories extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
               final category = categoryController.featuredCategories[index];
-              return MyVerticalmaheText(image: category.image, title: category.name, onTap: () => Get.to(() => SubCategoriesScreen()),);
+              return MyVerticalmaheText(image: category.image,isNetworkImage: true, title: category.name, onTap: () => Get.to(() => SubCategoriesScreen()),);
             },
           ),
         );

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -7,10 +8,14 @@ import 'package:sport_shop/common/widgets/list_tile/setting_menu_tile.dart';
 import 'package:sport_shop/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
 import 'package:sport_shop/data/repositories/authentication_repository.dart';
+import 'package:sport_shop/data/repositories/banners/banner_repository.dart';
+import 'package:sport_shop/data/repositories/categories/category_repository.dart';
 import 'package:sport_shop/features/personalization/screens/address/adress.dart';
 import 'package:sport_shop/features/personalization/screens/profile/profile.dart';
+import 'package:sport_shop/features/shop/controllers/category_controller.dart';
 import 'package:sport_shop/features/shop/screens/order/order.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
+import 'package:sport_shop/utils/dummy/dummy_data.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -54,11 +59,11 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: MySizes.spaceBtwSections,),
                   const MySectionHeading(title: 'App settings'),
                   const SizedBox(height: MySizes.spaceBtwItems,),
-                  SettingsMenuTile(icon: Iconsax.document_upload, title: 'Load data', subtitle: 'Upload data to your cloud Firebase',onTap: (){},),
+                  SettingsMenuTile(icon: Iconsax.document_upload, title: 'Load data', subtitle: 'Upload data to your cloud Firebase',onTap: () => BannerRepository().uploadDummyData(DummyData.banners),),
                   SettingsMenuTile(
                     icon: Iconsax.location,
                     title: 'Geolocation',
-                    subtitle: 'Set recomendation based on location',
+                    subtitle: 'Set recommendation based on location',
                     trailing: Switch(value: true, onChanged: (value){},),
                   ),
                   SettingsMenuTile(

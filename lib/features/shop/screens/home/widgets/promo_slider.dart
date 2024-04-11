@@ -33,7 +33,7 @@ class MyPromoSlider extends StatelessWidget {
                     viewportFraction : 1,
                     onPageChanged: (index, _) => controller.updatePageIndicator(index),
                   ),
-                  items: controller.banners.map((banner) => MyRoundedImage(imageUrl: banner.imageUrl, isNetworkImage: false,onPressed: () => Get.toNamed(banner.targetScreen),)).toList()
+                  items: controller.banners.map((banner) => MyRoundedImage(imageUrl: banner.imageUrl, isNetworkImage: true,onPressed: () => Get.toNamed(banner.targetScreen),)).toList()
               ),
               const SizedBox(height: MySizes.spaceBtwItems,),
               Center(
