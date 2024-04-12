@@ -10,6 +10,7 @@ import 'package:sport_shop/common/widgets/texts/section_heading.dart';
 import 'package:sport_shop/data/repositories/authentication_repository.dart';
 import 'package:sport_shop/data/repositories/banners/banner_repository.dart';
 import 'package:sport_shop/data/repositories/categories/category_repository.dart';
+import 'package:sport_shop/data/repositories/product/product_repository.dart';
 import 'package:sport_shop/features/personalization/screens/address/adress.dart';
 import 'package:sport_shop/features/personalization/screens/profile/profile.dart';
 import 'package:sport_shop/features/shop/controllers/category_controller.dart';
@@ -59,7 +60,7 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: MySizes.spaceBtwSections,),
                   const MySectionHeading(title: 'App settings'),
                   const SizedBox(height: MySizes.spaceBtwItems,),
-                  SettingsMenuTile(icon: Iconsax.document_upload, title: 'Load data', subtitle: 'Upload data to your cloud Firebase',onTap: () => BannerRepository().uploadDummyData(DummyData.banners),),
+                  SettingsMenuTile(icon: Iconsax.document_upload, title: 'Load data', subtitle: 'Upload data to your cloud Firebase',onTap: () => ProductRepository().uploadDummyData(DummyData.products),),
                   SettingsMenuTile(
                     icon: Iconsax.location,
                     title: 'Geolocation',

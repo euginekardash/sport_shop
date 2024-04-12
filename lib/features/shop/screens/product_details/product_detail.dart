@@ -7,6 +7,7 @@ import 'package:sport_shop/common/widgets/custom_shapes/curved_edges/curved_edge
 import 'package:sport_shop/common/widgets/icons/circular_icon.dart';
 import 'package:sport_shop/common/widgets/images/rounded_image.dart';
 import 'package:sport_shop/common/widgets/texts/section_heading.dart';
+import 'package:sport_shop/features/shop/models/product_model.dart';
 import 'package:sport_shop/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 import 'package:sport_shop/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:sport_shop/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
@@ -19,7 +20,9 @@ import 'package:sport_shop/utils/constants/sizes.dart';
 import 'package:sport_shop/utils/helpers/helper_functions.dart';
 
 class ProductDetail extends StatelessWidget {
-  const ProductDetail({super.key});
+  const ProductDetail({super.key,required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

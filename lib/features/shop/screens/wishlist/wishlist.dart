@@ -5,6 +5,7 @@ import 'package:sport_shop/common/widgets/appbar/appbar.dart';
 import 'package:sport_shop/common/widgets/icons/circular_icon.dart';
 import 'package:sport_shop/common/widgets/layouts/grid_layout.dart';
 import 'package:sport_shop/common/widgets/products/products_cards/product_card_vertical.dart';
+import 'package:sport_shop/features/shop/models/product_model.dart';
 import 'package:sport_shop/features/shop/screens/home/home.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 
@@ -25,7 +26,7 @@ class FavouriteScreen extends StatelessWidget {
           padding: const EdgeInsets.all(MySizes.defaultSpace),
           child: Column(
             children: [
-              MyGridLayout(itemCount: 6, itemBuilder: (_, index) => const ProductCardVertical())
+              MyGridLayout(itemCount: 6, itemBuilder: (_, index) => ProductCardVertical(product: ProductModel.empty(),))
             ],
           ),
         ),
