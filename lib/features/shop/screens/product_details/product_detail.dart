@@ -15,6 +15,7 @@ import 'package:sport_shop/features/shop/screens/product_details/widgets/product
 import 'package:sport_shop/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:sport_shop/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
+import 'package:sport_shop/utils/constants/enums.dart';
 import 'package:sport_shop/utils/constants/image_strings.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 import 'package:sport_shop/utils/helpers/helper_functions.dart';
@@ -26,14 +27,13 @@ class ProductDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = MyHelperFunctions.isDarkMode(context);
     return Scaffold(
       bottomNavigationBar: BottomAddToCart(),
      body: SingleChildScrollView(
        child: Column(
          children: [
          ///product image slider
-         ProductImageSlider(),
+         ProductImageSlider(product: product,),
 
          ///product details
          Padding(
@@ -44,11 +44,11 @@ class ProductDetail extends StatelessWidget {
                RatingAndShare(),
 
                ///price, title, stack, brand
-               ProductMetaData(),
+               ProductMetaData(product: product,),
 
                ///attributes
-               ProductAttributes(),
-               const SizedBox(height: MySizes.spaceBtwSections,),
+               if(product.productType == ProductType.variable.toString()) ProductAttributes(product: product,),
+               if(product.productType == ProductType.variable.toString()) const SizedBox(height: MySizes.spaceBtwSections,),
 
                ///checkout button
                SizedBox(width: double.infinity, child: ElevatedButton(onPressed: (){}, child: Text('Checkout'))),
@@ -57,8 +57,8 @@ class ProductDetail extends StatelessWidget {
                ///description
                const MySectionHeading(title: 'Description'),
                const SizedBox(height: MySizes.spaceBtwItems,),
-               const ReadMoreText(
-                 'A football is a ball inflated with air that is used to play one of the various sports known as football. In these games, with some exceptions, goals or points are scored only when the ball enters one of two designated goal-scoring areas; football games involve the two teams each trying to move the ball in opposite directions along the field of play.',
+               ReadMoreText(
+                 product.description ?? '',
                  trimLines: 2,
                  trimMode: TrimMode.Line,
                  trimCollapsedText: ' Show more',

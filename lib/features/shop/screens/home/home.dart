@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sport_shop/common/styles/vertical_product_shimmer.dart';
@@ -64,7 +65,12 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: MySizes.spaceBtwSections,),
 
                   ///Heading
-                  MySectionHeading(title: 'Popular Products', onPressed: () => Get.to(() => const AllProducts()), showActionButton: true,),
+                  MySectionHeading(
+                    title: 'Popular Products', 
+                    onPressed: () => Get.to(() => AllProducts(
+                      title: 'Popular Products',
+                      futureMethod: controller.fetchAllFeaturedProducts(),)),
+                    showActionButton: true,),
                   const SizedBox(height: MySizes.spaceBtwItems,),
 
                   ///Popular Products
