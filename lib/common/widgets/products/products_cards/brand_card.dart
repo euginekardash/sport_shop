@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sport_shop/common/widgets/containers/rounded_container.dart';
 import 'package:sport_shop/common/widgets/images/circular_image.dart';
 import 'package:sport_shop/common/widgets/texts/brand_title_text_with_verified_icon.dart';
+import 'package:sport_shop/features/shop/models/brand_model.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
 import 'package:sport_shop/utils/constants/enums.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
@@ -11,9 +12,10 @@ class MyBrandCard extends StatelessWidget {
   const MyBrandCard({
     super.key,
     required this.showBorder,
-    this.onTap,
+    this.onTap, required this.brand,
   });
 
+  final BrandModel brand;
   final bool showBorder;
   final void Function()? onTap;
 
@@ -30,8 +32,8 @@ class MyBrandCard extends StatelessWidget {
             ///Icon
             Flexible(
               child: MyCircularImage(
-                isNetworkImage: false,
-                image: "assets/icons/categories/icons8-school-uniform-64.png",
+                isNetworkImage: true,
+                image: brand.image,
                 backgroundColor: Colors.transparent,
                 overlayColor: MyHelperFunctions.isDarkMode(context) ? MyColors.white : MyColors.black,
               ),
@@ -44,9 +46,9 @@ class MyBrandCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const MyBrandTitleWithVerifiedIcon(title: 'Nike', brandTextSize: TextSizes.large),
+                  MyBrandTitleWithVerifiedIcon(title: brand.name, brandTextSize: TextSizes.large),
                   Text(
-                    '256 products',
+                    '${brand.productsCount ?? 0} products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sport_shop/common/widgets/containers/rounded_container.dart';
 import 'package:sport_shop/common/widgets/products/products_cards/brand_card.dart';
+import 'package:sport_shop/features/shop/models/brand_model.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 import 'package:sport_shop/utils/helpers/helper_functions.dart';
@@ -22,7 +23,7 @@ class MyBrandShowcase extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: MySizes.spaceBtwItems),
       child: Column(
         children: [
-          const MyBrandCard(showBorder: false),
+          MyBrandCard(showBorder: false, brand: BrandModel.empty(),),
           const SizedBox(height: MySizes.spaceBtwItems,),
 
           Row(

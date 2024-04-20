@@ -20,6 +20,15 @@ class DummyData{
     // CategoryModel(id: '7', name: 'Sports', image: MyImages.sportIcon, isFeatured: true),
     // CategoryModel(id: '14', name: 'Sports', image: MyImages.sportIcon, isFeatured: true),
   ];
+
+  static final List<BrandModel> brands = [
+    BrandModel(id: '1', name: 'Nike', image: 'assets/icons/brands/nike.png', isFeatured: true),
+    BrandModel(id: '2', name: 'Adidas', image: 'assets/icons/brands/adidas-logo.png', isFeatured: true),
+    BrandModel(id: '6', name: 'Puma', image: 'assets/icons/brands/puma-logo.png', isFeatured: true),
+    BrandModel(id: '3', name: 'Jordan', image: 'assets/icons/brands/jordan-logo.png', isFeatured: true),
+    BrandModel(id: '4', name: 'Acer', image: 'assets/icons/brands/acer_logo.png', isFeatured: true),
+  ];
+
   static final List<BannerModel> banners = [
     BannerModel(imageUrl: 'assets/images/banners/promo-banner-1.png', targetScreen: MyRouts.order, active: true),
     BannerModel(imageUrl: 'assets/images/banners/promo-banner-2.png', targetScreen: MyRouts.settings, active: true),
