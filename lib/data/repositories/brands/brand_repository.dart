@@ -32,6 +32,31 @@ class BrandRepository extends GetxController{
     }
   }
 
+  Future<List<BrandModel>> getBrandsForCategory(String categoryId)async{
+    try{
+
+      QuerySnapshot brandCategoryQuery = await _db.collection('BrandCategory').where('categoryId', isEqualTo: categoryId).get();
+
+      List<String> brandIds = brandCategoryQuery.docs.map((doc) => doc['brandId'] as String).toList();
+
+      final brandsQuery = await _db.collection('Brands').where(FieldPath.documentId, whereIn: brandIds).limit(2).get();
+
+      List<BrandModel> brands = brandsQuery.docs.map((doc) => BrandModel.fromSnapshot(doc)).toList();
+
+      return brands;
+
+    }on FirebaseException catch(e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch(e) {
+      throw TPlatformException(e.code).message;
+    } on FormatException catch(_){
+      throw const TFormatException();
+    }
+    catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
   Future<void> uploadDummyData(List<BrandModel> brands) async{
     try{
       final storage = Get.put(FirebaseStorageService());
@@ -39,7 +64,7 @@ class BrandRepository extends GetxController{
       for(var brand in brands){
         final file = await storage.getImageDataFromAssets(brand.image);
 
-        final url = await storage.uploadImageData('Brands', file, brand.image);
+        final url = await storage.uploadImageData('Brands', file, brand.name);
 
         brand.image = url;
 
