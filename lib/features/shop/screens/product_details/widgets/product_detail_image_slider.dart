@@ -6,6 +6,7 @@ import 'package:sport_shop/common/widgets/appbar/appbar.dart';
 import 'package:sport_shop/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
 import 'package:sport_shop/common/widgets/icons/circular_icon.dart';
 import 'package:sport_shop/common/widgets/images/rounded_image.dart';
+import 'package:sport_shop/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:sport_shop/features/shop/controllers/images_controller.dart';
 import 'package:sport_shop/features/shop/models/product_model.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
@@ -80,10 +81,10 @@ class ProductImageSlider extends StatelessWidget {
               ),
             ),
             ///Appbar Icons
-            const MyAppBar(
+            MyAppBar(
               showBackArrow: true,
               actions: [
-                CircularIcon(icon: Iconsax.heart5, color: Colors.red,)
+                FavouriteIcon(productId: product.id,),
               ],
             )
 

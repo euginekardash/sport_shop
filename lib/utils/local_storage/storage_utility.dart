@@ -1,15 +1,23 @@
 import 'package:get_storage/get_storage.dart';
 
 class MyLocalStorage{
-  static final MyLocalStorage _instance = MyLocalStorage._internal();
 
-  factory MyLocalStorage(){
-    return _instance;
-  }
+  late final GetStorage _storage;
+
+  static MyLocalStorage? _instance;
 
   MyLocalStorage._internal();
 
-  final _storage = GetStorage();
+  factory MyLocalStorage.instance() {
+    _instance ??= MyLocalStorage._internal();
+    return _instance!;
+  }
+
+  static Future<void> init(String bucketName) async{
+    await GetStorage.init(bucketName);
+    _instance = MyLocalStorage._internal();
+    _instance!._storage = GetStorage(bucketName);
+  }
 
   Future<void> saveData<T>(String key, T value) async{
     await _storage.write(key, value);

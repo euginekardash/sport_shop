@@ -16,6 +16,7 @@ import 'package:sport_shop/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:sport_shop/utils/exceptions/firebase_exceptions.dart';
 import 'package:sport_shop/utils/exceptions/format_exceptions.dart';
 import 'package:sport_shop/utils/exceptions/platform_exceptions.dart';
+import 'package:sport_shop/utils/local_storage/storage_utility.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -33,10 +34,13 @@ class AuthenticationRepository extends GetxController {
   }
 
 
-  screenRedirect() async {
+  void screenRedirect() async {
     final user = _auth.currentUser;
     if(user != null){
       if(user.emailVerified){
+
+        await MyLocalStorage.init(user.uid);
+
         Get.offAll(() => const NavigationMenu());
       } else {
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email,));

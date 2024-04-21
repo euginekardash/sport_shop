@@ -7,6 +7,7 @@ import 'package:sport_shop/common/styles/shadows.dart';
 import 'package:sport_shop/common/widgets/containers/rounded_container.dart';
 import 'package:sport_shop/common/widgets/icons/circular_icon.dart';
 import 'package:sport_shop/common/widgets/images/rounded_image.dart';
+import 'package:sport_shop/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:sport_shop/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:sport_shop/common/widgets/texts/product_price_text.dart';
 import 'package:sport_shop/common/widgets/texts/product_title_text.dart';
@@ -66,7 +67,11 @@ class ProductCardVertical extends StatelessWidget {
 
 
                   ///fav
-                  const Positioned(top: 0, right: 0, child: CircularIcon(icon: Iconsax.heart5, color: Colors.red,)),
+                  Positioned(
+                      top: 0,
+                      right: 0,
+                      child: FavouriteIcon(productId: product.id,),
+                  ),
                 ],
               ),
             ),

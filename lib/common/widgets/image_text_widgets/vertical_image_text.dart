@@ -47,7 +47,7 @@ class MyVerticalmaheText extends StatelessWidget {
               padding: MySizes.sm *1.4,
               isNetworkImage: isNetworkImage,
               backgroundColor: backgroundColor,
-              overlayColor: MyHelperFunctions.isDarkMode(context)? MyColors.dark : MyColors.light,
+              overlayColor: MyHelperFunctions.isDarkMode(context)? MyColors.dark : MyColors.dark,
             ),
             ///Text
             const SizedBox(height: MySizes.spaceBtwItems/2,),
