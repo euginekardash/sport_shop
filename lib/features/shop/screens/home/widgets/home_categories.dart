@@ -17,7 +17,7 @@ class MyHomeCategories extends StatelessWidget {
       if(categoryController.isLoading.value) return const CategoryShimmer();
 
       if(categoryController.featuredCategories.isEmpty){
-        return Center(child: Text('No data found', style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white),),);
+        return Center(child: Text('Данных нет', style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white),),);
       }
         return SizedBox(
           height: 80,
@@ -27,7 +27,12 @@ class MyHomeCategories extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
               final category = categoryController.featuredCategories[index];
-              return MyVerticalmaheText(image: category.image,isNetworkImage: true, title: category.name, onTap: () => Get.to(() => SubCategoriesScreen()),);
+              return MyVerticalmaheText(
+                image: category.image,
+                isNetworkImage: true,
+                title: category.name,
+                onTap: () => Get.to(() => SubCategoriesScreen(category: category)),
+              );
             },
           ),
         );

@@ -97,9 +97,6 @@ class ProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                
-                
-                
                 ///Price
                 Flexible(
                   child: Column(

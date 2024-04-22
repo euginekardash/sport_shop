@@ -16,6 +16,7 @@ class DummyData{
     CategoryModel(id: '2', name: 'Clothes', image: MyImages.clothIcon, isFeatured: true),
     CategoryModel(id: '3', name: 'Toys', image: MyImages.toyIcon, isFeatured: true),
     CategoryModel(id: '4', name: 'Shoes', image: MyImages.shoeIcon, isFeatured: true),
+    CategoryModel(id: '10', name: 'Инвентарь', image: MyImages.sportIcon, isFeatured: false, parentId: '1'),
     // CategoryModel(id: '6', name: 'Sports', image: MyImages.sportIcon, isFeatured: true),
     // CategoryModel(id: '7', name: 'Sports', image: MyImages.sportIcon, isFeatured: true),
     // CategoryModel(id: '14', name: 'Sports', image: MyImages.sportIcon, isFeatured: true),

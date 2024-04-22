@@ -8,17 +8,26 @@ import 'package:sport_shop/common/widgets/products/favourite_icon/favourite_icon
 import 'package:sport_shop/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:sport_shop/common/widgets/texts/product_price_text.dart';
 import 'package:sport_shop/common/widgets/texts/product_title_text.dart';
+import 'package:sport_shop/features/shop/controllers/product_controller.dart';
+import 'package:sport_shop/features/shop/models/product_model.dart';
 import 'package:sport_shop/utils/constants/colors.dart';
 import 'package:sport_shop/utils/constants/image_strings.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 import 'package:sport_shop/utils/helpers/helper_functions.dart';
 
+import '../../../../utils/constants/enums.dart';
+
 class ProductCardHorizontal extends StatelessWidget {
-  const ProductCardHorizontal({super.key});
+  const ProductCardHorizontal({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     final dark = MyHelperFunctions.isDarkMode(context);
+
+    final controller = ProductController.instance;
+    final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
 
     return Container(
         width: 310,
@@ -38,22 +47,24 @@ class ProductCardHorizontal extends StatelessWidget {
                 SizedBox(
                     height: 120,
                     width: 120,
-                    child: MyRoundedImage(imageUrl: MyImages.productImage3, applyImageRadius: true,)
+                    child: MyRoundedImage(isNetworkImage: true ,imageUrl: product.thumbnail, applyImageRadius: true,)
                 ),
 
                 ///sale
-                Positioned(
-                  top: 10,
-                  child: MyRoundedContainer(
-                    radius: MySizes.sm,
-                    backgroundColor: MyColors.secondary.withOpacity(0.8),
-                    padding: const EdgeInsets.symmetric(horizontal: MySizes.sm, vertical: MySizes.xs),
-                    child: Text("25%" ,style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.black),),
+                if(salePercentage != null)
+                  Positioned(
+                    top: 10,
+                    child: MyRoundedContainer(
+                      radius: MySizes.sm,
+                      backgroundColor: MyColors.secondary.withOpacity(0.8),
+                      padding: const EdgeInsets.symmetric(horizontal: MySizes.sm, vertical: MySizes.xs),
+                      child: Text("$salePercentage%" ,style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.black),),
+                    ),
                   ),
-                ),
+
 
                 ///fav
-                Positioned(top: 0, right: 0, child: FavouriteIcon(productId: '',)),
+                Positioned(top: 0, right: 0, child: FavouriteIcon(productId: product.id,)),
               ],
             ),
           ),
@@ -66,21 +77,40 @@ class ProductCardHorizontal extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MyProductTitleText(title: 'Red Nike boots', smallSize: true,),
+                      MyProductTitleText(title: product.title, smallSize: true,),
                       SizedBox(height: MySizes.spaceBtwItems/2,),
-                      MyBrandTitleWithVerifiedIcon(title: 'Nike')
+                      MyBrandTitleWithVerifiedIcon(title: product.brand!.name),
                     ],
                   ),
 
                   const Spacer(),
 
+                  ///Price row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Flexible(child: MyProductPriceText(price: '100')),
+                      ///Price
+                      Flexible(
+                        child: Column(
+                          children: [
+                            if(product.productType == ProductType.single.toString() && product.salePrice > 0)
+                              Padding(
+                                padding: EdgeInsets.only(left: MySizes.sm),
+                                child: Text(
+                                  product.price.toString(),
+                                  style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
+                                ),
+                              ),
+                            Padding(
+                              padding: EdgeInsets.only(left: MySizes.sm),
+                              child: MyProductPriceText(price: controller.getProductPrice(product), isLarge: false,),
+                            ),
+                          ],
+                        ),
+                      ),
 
                       ///add to cart button
                       Container(
@@ -96,6 +126,7 @@ class ProductCardHorizontal extends StatelessWidget {
                             height: MySizes.iconLg * 1.2,
                             child: Center(child: Icon(Iconsax.add, color: MyColors.white,))),
                       ),
+
                     ],
                   )
                 ],

@@ -61,7 +61,7 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: MySizes.spaceBtwSections,),
                   const MySectionHeading(title: 'App settings'),
                   const SizedBox(height: MySizes.spaceBtwItems,),
-                  SettingsMenuTile(icon: Iconsax.document_upload, title: 'Load data', subtitle: 'Upload data to your cloud Firebase',onTap: () => BrandRepository().uploadDummyData(DummyData.brands),),
+                  SettingsMenuTile(icon: Iconsax.document_upload, title: 'Load data', subtitle: 'Upload data to your cloud Firebase',onTap: () => CategoryRepository().uploadDummyData(DummyData.categories),),
                   SettingsMenuTile(
                     icon: Iconsax.location,
                     title: 'Geolocation',
