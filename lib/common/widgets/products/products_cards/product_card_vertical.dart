@@ -11,6 +11,7 @@ import 'package:sport_shop/common/widgets/products/favourite_icon/favourite_icon
 import 'package:sport_shop/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:sport_shop/common/widgets/texts/product_price_text.dart';
 import 'package:sport_shop/common/widgets/texts/product_title_text.dart';
+import 'package:sport_shop/features/shop/controllers/product/cart_controller.dart';
 import 'package:sport_shop/features/shop/controllers/product_controller.dart';
 import 'package:sport_shop/features/shop/models/product_model.dart';
 import 'package:sport_shop/features/shop/screens/product_details/product_detail.dart';
@@ -28,6 +29,7 @@ class ProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = ProductController.instance;
+    final cartController = CartController.instance;
     final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = MyHelperFunctions.isDarkMode(context);
 
@@ -118,18 +120,34 @@ class ProductCardVertical extends StatelessWidget {
                 ),
 
                 ///add to cart button
-                Container(
-                  decoration: const BoxDecoration(
-                    color: MyColors.dark,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(MySizes.cardRadiusMd),
-                      bottomRight: Radius.circular(MySizes.productImageRadius),
-                    ),
+                InkWell(
+                  onTap: (){
+                    if(product.productType == ProductType.single.toString()){
+                      final cartItem = cartController.convertToCartItem(product, 1);
+                      cartController.addOneToCart(cartItem);
+                    }else{
+                      Get.to(() => ProductDetail(product: product,));
+                    }
+                  },
+                  child: Obx(
+                    (){
+                      final productQuantityInCart = cartController.getProductQuantityInCart(product.id);
+                      return Container(
+                      decoration: BoxDecoration(
+                        color:productQuantityInCart > 0 ? MyColors.primary : MyColors.dark,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(MySizes.cardRadiusMd),
+                          bottomRight: Radius.circular(MySizes.productImageRadius),
+                        ),
+                      ),
+                      child: SizedBox(
+                          width: MySizes.iconLg * 1.2,
+                          height: MySizes.iconLg * 1.2,
+                          child: Center(child:productQuantityInCart > 0
+                              ? Text(productQuantityInCart.toString(), style: Theme.of(context).textTheme.bodyLarge!.apply(color: MyColors.white),)
+                              : Icon(Iconsax.add, color: MyColors.white,))),
+                    );}
                   ),
-                  child: const SizedBox(
-                      width: MySizes.iconLg * 1.2,
-                      height: MySizes.iconLg * 1.2,
-                      child: Center(child: Icon(Iconsax.add, color: MyColors.white,))),
                 ),
 
               ],

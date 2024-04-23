@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sport_shop/common/widgets/products/cart/add_remove_button.dart';
 import 'package:sport_shop/common/widgets/products/cart/cart_item.dart';
 import 'package:sport_shop/common/widgets/texts/product_price_text.dart';
+import 'package:sport_shop/features/shop/controllers/product/cart_controller.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 
 class CartItems extends StatelessWidget {
@@ -11,33 +13,42 @@ class CartItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-      separatorBuilder: (_, __) =>  const SizedBox(
-        height: MySizes.spaceBtwSections,
-      ),
-      itemCount: 2,
-      itemBuilder: (_, index) =>   Column(
-        children: [
-          const CartItem(),
-          if(showAddRemoveButtons)const SizedBox(height: MySizes.spaceBtwItems,),
+    final cartController = CartController.instance;
 
-          if(showAddRemoveButtons)const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Obx(
+      () => ListView.separated(
+        shrinkWrap: true,
+        separatorBuilder: (_, __) =>  const SizedBox(
+          height: MySizes.spaceBtwSections,
+        ),
+        itemCount: cartController.cartItems.length,
+        itemBuilder: (_, index) => Obx(
+          (){
+            final item = cartController.cartItems[index];
+            return Column(
             children: [
-              Row(
+              CartItem(cartItem: item,),
+              if(showAddRemoveButtons)const SizedBox(height: MySizes.spaceBtwItems,),
+
+              if(showAddRemoveButtons)Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(width: 70,),
-                  ///remove but
-                  ProductQuantity(),
+                  Row(
+                    children: [
+                      SizedBox(width: 70,),
+                      ///remove but
+                      ProductQuantity(quantity: item.quantity, add: () => cartController.addOneToCart(item),
+                        remove: () => cartController.removeOneFromCart(item),),
+                    ],
+                  ),
+
+                  MyProductPriceText(price: (item.price * item.quantity).toStringAsFixed(1)),
+
                 ],
               ),
-
-              MyProductPriceText(price: '255'),
-
             ],
-          ),
-        ],
+          );}
+        ),
       ),
     );
   }

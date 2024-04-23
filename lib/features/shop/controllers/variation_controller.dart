@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:sport_shop/features/shop/controllers/images_controller.dart';
+import 'package:sport_shop/features/shop/controllers/product/cart_controller.dart';
 import 'package:sport_shop/features/shop/models/product_model.dart';
 import 'package:sport_shop/features/shop/models/product_variation_model.dart';
 
@@ -19,6 +20,11 @@ class VariationController extends GetxController{
 
     if(selectedVariation.image.isNotEmpty){
       ImagesController.instance.selectedProductImage.value = selectedVariation.image;
+    }
+
+    if(selectedVariation.id.isNotEmpty){
+      final cartController = CartController.instance;
+      cartController.productQuantityInCart.value = cartController.getVariationQuantityInCart(product.id, selectedVariation.id);
     }
 
     this.selectedVariation.value = selectedVariation;

@@ -31,7 +31,7 @@ class StoreScreen extends StatelessWidget {
         appBar: MyAppBar(
           title: const Text('Store'),
           actions: [
-            MyCartCounterIcon(onPressed: (){},),
+            MyCartCounterIcon(),
           ],
         ),
         body: NestedScrollView(headerSliverBuilder: (_, innerBoxisScrolled) {
