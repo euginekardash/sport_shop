@@ -11,7 +11,7 @@ class AddressRepository extends GetxController{
   
   Future<List<AddressModel>> fetchUserAddresses() async{
     try{
-      final userId = AuthenticationRepository.instance.authUser!.uid;
+      final userId = AuthenticationRepository.instance.authUser.uid;
       if(userId.isEmpty) throw 'Невозможно найти вашу информацию. Попробуйте позже через пару минут';
       
       final result = await _db.collection('Users').doc(userId).collection('Addresses').get();
@@ -23,7 +23,7 @@ class AddressRepository extends GetxController{
 
   Future<void> updateSelectedField(String addressId, bool selected)async{
     try{
-      final userId = AuthenticationRepository.instance.authUser!.uid;
+      final userId = AuthenticationRepository.instance.authUser.uid;
       await _db.collection('Users').doc(userId).collection('Addresses').doc(addressId).update({'SelectedAddress' : selected});
     }catch(e){
       throw 'Невозможно обновить ваш выбранный адрес. Повторите позже';
@@ -32,7 +32,7 @@ class AddressRepository extends GetxController{
 
   Future<String> addAddress(AddressModel address) async{
     try{
-      final userId = AuthenticationRepository.instance.authUser!.uid;
+      final userId = AuthenticationRepository.instance.authUser.uid;
       final currentAddress = await _db.collection('Users').doc(userId).collection('Addresses').add(address.toJson());
       return currentAddress.id;
     }catch(e){

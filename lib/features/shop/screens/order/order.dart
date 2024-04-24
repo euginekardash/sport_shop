@@ -9,7 +9,7 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: Text('My Orders' , style: Theme.of(context).textTheme.headlineSmall,),),
+      appBar: MyAppBar(title: Text('Мои заказы' , style: Theme.of(context).textTheme.headlineSmall,),showBackArrow: true,),
       body: Padding(
         padding: EdgeInsets.all(MySizes.defaultSpace),
 

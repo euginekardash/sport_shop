@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sport_shop/common/widgets/texts/section_heading.dart';
 import 'package:sport_shop/features/personalization/models/address_model.dart';
+import 'package:sport_shop/features/personalization/screens/address/add_new_address.dart';
+import 'package:sport_shop/features/personalization/screens/address/widgets/single_address.dart';
+import 'package:sport_shop/utils/constants/sizes.dart';
+import 'package:sport_shop/utils/helpers/cloud_helper_functions.dart';
 import 'package:sport_shop/utils/helpers/network_manager.dart';
 import 'package:sport_shop/utils/popups/full_screen_loader.dart';
 import 'package:sport_shop/utils/popups/loaders.dart';
@@ -91,6 +96,45 @@ class AddressController extends GetxController{
       MyFullScreenLoader.stopLoading();
       MyLoaders.errorSnackBar(title: 'Адресс не найден', message: e.toString());
     }
+  }
+
+  Future<dynamic> selectNewAddressPopup(BuildContext context){
+    return showModalBottomSheet(
+        context: context,
+        builder: (_) => Container(
+          padding: const EdgeInsets.all(MySizes.lg),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const MySectionHeading(title: 'Выберите адрес', showActionButton: false,),
+              FutureBuilder(
+                  future: allUserAddresses(),
+                  builder: (_, snapshot){
+                    final response = CloudHelperFunctions.checkMultiRecordState(snapshot: snapshot);
+                    if(response != null) return response;
+
+                    return ListView.builder(
+                      shrinkWrap: true,
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (_, index) => SingleAddress(
+                          address: snapshot.data![index],
+                          onTap: () async{
+                            await selectAddress(snapshot.data![index]);
+                            Get.back();
+                          },
+                        )
+                    );
+                  }
+              ),
+              const SizedBox(height: MySizes.defaultSpace * 2,),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(onPressed: () => Get.to(() => const AddNewAddressScreen()), child: const Text('Добавить новый адрес'),),
+              )
+            ],
+          ),
+        )
+    );
   }
 
   void resetFormFields(){

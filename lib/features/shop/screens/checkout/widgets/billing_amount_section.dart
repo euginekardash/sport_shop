@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:sport_shop/features/shop/controllers/product/cart_controller.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
+import 'package:sport_shop/utils/helpers/pricing_calculator.dart';
 
 class BillingAmountSection extends StatelessWidget {
   const BillingAmountSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
     return Column(
       children: [
         ///SubTotal
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Subtotal', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('\$255', style: Theme.of(context).textTheme.bodyMedium,),
+            Text('Цена продуктов', style: Theme.of(context).textTheme.bodyMedium,),
+            Text('$subTotal', style: Theme.of(context).textTheme.bodyMedium,),
           ],
         ),
         const SizedBox(height: MySizes.spaceBtwItems / 2,),
@@ -22,8 +26,8 @@ class BillingAmountSection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Shipping Fee', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('\$6.0', style: Theme.of(context).textTheme.labelLarge,),
+            Text('Стоимость доставки', style: Theme.of(context).textTheme.bodyMedium,),
+            Text('${MyPricingCalculator.calculateShippingCost(subTotal, "руб")}', style: Theme.of(context).textTheme.labelLarge,),
           ],
         ),
         const SizedBox(height: MySizes.spaceBtwItems / 2,),
@@ -32,8 +36,8 @@ class BillingAmountSection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Tax Fee', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('\$6.0', style: Theme.of(context).textTheme.labelLarge,),
+            Text('НДС', style: Theme.of(context).textTheme.bodyMedium,),
+            Text('${MyPricingCalculator.calculateTax(subTotal, 'руб')}', style: Theme.of(context).textTheme.labelLarge,),
           ],
         ),
 
@@ -43,8 +47,8 @@ class BillingAmountSection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Order Total', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('\$6.0', style: Theme.of(context).textTheme.titleLarge,),
+            Text('Итого', style: Theme.of(context).textTheme.bodyMedium,),
+            Text('${MyPricingCalculator.calculateTotalPrice(subTotal, 'руб')}', style: Theme.of(context).textTheme.titleLarge,),
           ],
         ),
       ],

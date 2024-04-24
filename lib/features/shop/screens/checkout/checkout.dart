@@ -13,16 +13,26 @@ import 'package:sport_shop/utils/constants/colors.dart';
 import 'package:sport_shop/utils/constants/image_strings.dart';
 import 'package:sport_shop/utils/constants/sizes.dart';
 import 'package:sport_shop/utils/helpers/helper_functions.dart';
+import 'package:sport_shop/utils/helpers/pricing_calculator.dart';
+import 'package:sport_shop/utils/popups/loaders.dart';
+
+import '../../controllers/product/cart_controller.dart';
+import '../../controllers/product/order_controller.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
+    final orderController = Get.put(OrderController());
+    final totalAmount = MyPricingCalculator.calculateTotalPrice(subTotal, 'руб');
+
     final dark = MyHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: MyAppBar(
-        title: Text('Order Review', style: Theme.of(context).textTheme.headlineSmall,),
+        title: Text('Оформление заказа', style: Theme.of(context).textTheme.headlineSmall,),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
@@ -64,7 +74,9 @@ class CheckoutScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(MySizes.defaultSpace),
-        child: ElevatedButton(onPressed: () => Get.to(() => SuccessScreen(image: MyImages.successfulPaymentIcon, title: 'Payment success!', subTitle: 'Your items will be shipped soon!', onPressed: () => Get.offAll(() => const NavigationMenu()))), child: const Text('Checkout \$255'),),
+        child: ElevatedButton(onPressed: subTotal > 0 ? () => orderController.processOrder(totalAmount)
+            : () => MyLoaders.warningSnackBar(title: 'Корзина пуста', message: 'Для начала заполните корзину'),
+          child: Text('К оформению $totalAmount'),),
       ),
     );
   }

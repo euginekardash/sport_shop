@@ -25,7 +25,7 @@ class MyPricingCalculator{
   }
 
   static double getTaxRateForLocation(String location){
-    return 0.10; // 10% но можно использовать какоето API
+    return 0.20; // 10% но можно использовать какоето API
   }
 
   static double getShoppingCost(String location){
