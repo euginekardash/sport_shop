@@ -4,10 +4,10 @@ import 'package:sport_shop/utils/constants/sizes.dart';
 
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
-    super.key, this.icon = Iconsax.arrow_right_34, required this.onPressed, required this.title, required this.value,
+    super.key, this.icon , required this.onPressed, required this.title, required this.value,
   });
 
-  final IconData icon;
+  final IconData? icon;
   final VoidCallback onPressed;
   final String title, value;
 
@@ -21,7 +21,7 @@ class ProfileMenu extends StatelessWidget {
           children: [
             Expanded(flex: 3,child: Text(title, style: Theme.of(context).textTheme.bodySmall, overflow: TextOverflow.ellipsis,)),
             Expanded(flex: 5,child: Text(value, style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis,)),
-            Expanded(child: const Icon(Iconsax.arrow_right_34, size: 18,)),
+            Expanded(child: Icon(icon, size: 18,)),
           ],
         ),
       ),

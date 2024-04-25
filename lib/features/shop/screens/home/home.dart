@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: MySizes.spaceBtwSections,),
 
                   ///searchbar
-                  MySearchContainer(text: 'Search in store',),
+                  MySearchContainer(text: 'Поиск',),
                   SizedBox(height: MySizes.spaceBtwSections,),
 
 
@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       ///Heading
-                      MySectionHeading(title: 'Popular Categories', showActionButton: false, textColor: Colors.white,),
+                      MySectionHeading(title: 'Популярные категории', showActionButton: false, textColor: Colors.white,),
                       SizedBox(height: MySizes.spaceBtwItems,),
 
                       ///Categories
@@ -66,9 +66,9 @@ class HomeScreen extends StatelessWidget {
 
                   ///Heading
                   MySectionHeading(
-                    title: 'Popular Products', 
+                    title: 'Популярные продукты',
                     onPressed: () => Get.to(() => AllProducts(
-                      title: 'Popular Products',
+                      title: 'Популярные продукты',
                       futureMethod: controller.fetchAllFeaturedProducts(),)),
                     showActionButton: true,),
                   const SizedBox(height: MySizes.spaceBtwItems,),
@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                     if(controller.isLoading.value) return const VerticalProductShimmer();
 
                     if(controller.featuredProducts.isEmpty){
-                      return Center(child: Text('No data found', style: Theme.of(context).textTheme.bodyMedium,),);
+                      return Center(child: Text('Данных нет', style: Theme.of(context).textTheme.bodyMedium,),);
                     }
                     return MyGridLayout(
                       itemCount: controller.featuredProducts.length,

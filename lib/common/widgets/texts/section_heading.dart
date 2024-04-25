@@ -6,7 +6,7 @@ class MySectionHeading extends StatelessWidget {
     this.textColor,
     this.showActionButton = false,
     required this.title,
-    this.buttonTitle = 'View all',
+    this.buttonTitle = 'Посмотреть все',
     this.onPressed,
   });
 

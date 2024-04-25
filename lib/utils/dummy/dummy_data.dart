@@ -23,11 +23,11 @@ class DummyData{
   ];
 
   static final List<BrandModel> brands = [
-    BrandModel(id: '1', name: 'Nike', image: 'assets/icons/brands/nike.png', isFeatured: true),
-    BrandModel(id: '2', name: 'Adidas', image: 'assets/icons/brands/adidas-logo.png', isFeatured: true),
-    BrandModel(id: '6', name: 'Puma', image: 'assets/icons/brands/puma-logo.png', isFeatured: true),
-    BrandModel(id: '3', name: 'Jordan', image: 'assets/icons/brands/jordan-logo.png', isFeatured: true),
-    BrandModel(id: '4', name: 'Acer', image: 'assets/icons/brands/acer_logo.png', isFeatured: true),
+    BrandModel(id: '1', name: 'Nike', image: 'assets/icons/brands/nike.png', isFeatured: true, productsCount: 200),
+    BrandModel(id: '2', name: 'Adidas', image: 'assets/icons/brands/adidas-logo.png', isFeatured: true, productsCount: 200),
+    BrandModel(id: '6', name: 'Puma', image: 'assets/icons/brands/puma-logo.png', isFeatured: true, productsCount: 200),
+    BrandModel(id: '3', name: 'Jordan', image: 'assets/icons/brands/jordan-logo.png', isFeatured: true, productsCount: 200),
+    BrandModel(id: '4', name: 'Acer', image: 'assets/icons/brands/acer_logo.png', isFeatured: true, productsCount: 200),
   ];
 
   static final List<BannerModel> banners = [

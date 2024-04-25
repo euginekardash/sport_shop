@@ -29,7 +29,7 @@ class StoreScreen extends StatelessWidget {
       length: categories.length,
       child: Scaffold(
         appBar: MyAppBar(
-          title: const Text('Store'),
+          title: const Text('Магазин'),
           actions: [
             MyCartCounterIcon(),
           ],
@@ -51,11 +51,11 @@ class StoreScreen extends StatelessWidget {
                   children: [
                     ///search bar
                     const SizedBox(height: MySizes.spaceBtwItems,),
-                    const MySearchContainer(text: 'Search in store', showBorder: true, showBackground: false, padding: EdgeInsets.zero,),
+                    const MySearchContainer(text: 'Поиск', showBorder: true, showBackground: false, padding: EdgeInsets.zero,),
                     const SizedBox(height: MySizes.spaceBtwSections,),
 
                     ///featured brands
-                    MySectionHeading(title: 'Featured Brands', showActionButton: true, onPressed: () => Get.to(() => const AllBrandsScreen()),),
+                    MySectionHeading(title: 'Популярные бренды', showActionButton: true, onPressed: () => Get.to(() => const AllBrandsScreen()),),
                     const SizedBox(height: MySizes.spaceBtwItems/1.5,),
 
                     Obx(
@@ -64,7 +64,7 @@ class StoreScreen extends StatelessWidget {
 
                         if(brandController.featuredBrands.isEmpty) {
                           return Center(
-                            child: Text('No data Found', style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white),),
+                            child: Text('Данных нет', style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white),),
                           );
                         }
 

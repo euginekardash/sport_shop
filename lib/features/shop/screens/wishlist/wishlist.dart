@@ -23,9 +23,9 @@ class FavouriteScreen extends StatelessWidget {
     final controller = FavouritesController.instance;
     return Scaffold(
       appBar: MyAppBar(
-        title: Text('Wishlist', style: Theme.of(context).textTheme.headlineMedium,),
+        title: Text('Избранное', style: Theme.of(context).textTheme.headlineMedium,),
         actions: [
-          CircularIcon(icon: Iconsax.add, onPressed: () => Get.to(const NavigationMenu()),)
+          CircularIcon(icon: Iconsax.add, onPressed: () => Get.offAll(() => const NavigationMenu()),)
         ],
       ),
       body: SingleChildScrollView(
@@ -43,7 +43,7 @@ class FavouriteScreen extends StatelessWidget {
                         animation: 'assets/images/animations/loading.json',
                       showAction: true,
                       actionText: 'Давайте добавим товары',
-                      onActionPressed: () => Get.off(() => const NavigationMenu()),
+                      onActionPressed: () => Get.offAll(() => const NavigationMenu()),
                     );
 
                     const loader = VerticalProductShimmer(itemCount: 6,);

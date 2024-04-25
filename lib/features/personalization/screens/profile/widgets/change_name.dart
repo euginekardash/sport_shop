@@ -15,7 +15,7 @@ class ChangeName extends StatelessWidget {
     return Scaffold(
       appBar: MyAppBar(
         showBackArrow: true,
-        title: Text('Change Name', style: Theme.of(context).textTheme.headlineSmall,),
+        title: Text('Изменить имя', style: Theme.of(context).textTheme.headlineSmall,),
       ),
       body: Padding(
         padding: const EdgeInsets.all(MySizes.defaultSpace),
@@ -23,7 +23,7 @@ class ChangeName extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Use real name for easy verification. This name will appear on several pages.',
+              'Используйте свое настоящее имя и фамилию',
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: MySizes.spaceBtwSections,),
@@ -36,14 +36,14 @@ class ChangeName extends StatelessWidget {
                     controller: controller.firstName,
                     validator: (value) => MyValidator.validateEmptyText('First name', value),
                     expands: false,
-                    decoration: const InputDecoration(labelText: 'First name', prefixIcon: Icon(Iconsax.user)),
+                    decoration: const InputDecoration(labelText: 'Имя', prefixIcon: Icon(Iconsax.user)),
                   ),
                   const SizedBox(height: MySizes.spaceBtwInputFields,),
                   TextFormField(
                     controller: controller.lastName,
                     validator: (value) => MyValidator.validateEmptyText('Last name', value),
                     expands: false,
-                    decoration: const InputDecoration(labelText: 'Last name', prefixIcon: Icon(Iconsax.user)),
+                    decoration: const InputDecoration(labelText: 'Фамилия', prefixIcon: Icon(Iconsax.user), ),
                   ),
                 ],
               ),
@@ -53,7 +53,7 @@ class ChangeName extends StatelessWidget {
             ///save
             SizedBox(
               width: double.infinity,
-              child: ElevatedButton(onPressed: () => controller.updateUserName(), child: const Text('Save'),),
+              child: ElevatedButton(onPressed: () => controller.updateUserName(), child: const Text('Сохранить'),),
             )
           ],
         ),

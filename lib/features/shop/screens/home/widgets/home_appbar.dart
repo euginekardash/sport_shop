@@ -20,7 +20,7 @@ class MyHomeAppBar extends StatelessWidget {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(MyTexts.homeAppbarTitle, style: Theme.of(context).textTheme.labelMedium!.apply(color: MyColors.grey)),
+          Text("Хороший день для шопинга", style: Theme.of(context).textTheme.labelMedium!.apply(color: MyColors.grey)),
           Obx(() {
             if(controller.profileLoading.value){
               return const ShimmerEffect(width: 80, height: 15);
