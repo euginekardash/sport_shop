@@ -41,7 +41,7 @@ class StoreScreen extends StatelessWidget {
               pinned: true,
               floating: true,
               backgroundColor: MyHelperFunctions.isDarkMode(context) ? MyColors.black : MyColors.white,
-              expandedHeight: 440,
+              expandedHeight: 350,
 
               flexibleSpace: Padding(
                 padding: const EdgeInsets.all(MySizes.defaultSpace),
@@ -50,9 +50,9 @@ class StoreScreen extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     ///search bar
-                    const SizedBox(height: MySizes.spaceBtwItems,),
-                    const MySearchContainer(text: 'Поиск', showBorder: true, showBackground: false, padding: EdgeInsets.zero,),
-                    const SizedBox(height: MySizes.spaceBtwSections,),
+                    //const SizedBox(height: MySizes.spaceBtwItems,),
+                    //const MySearchContainer(text: 'Поиск', showBorder: true, showBackground: false, padding: EdgeInsets.zero,),
+                    //const SizedBox(height: MySizes.spaceBtwSections,),
 
                     ///featured brands
                     MySectionHeading(title: 'Популярные бренды', showActionButton: true, onPressed: () => Get.to(() => const AllBrandsScreen()),),

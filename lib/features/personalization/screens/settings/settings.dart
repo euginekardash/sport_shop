@@ -25,6 +25,9 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userId = AuthenticationRepository.instance.authUser.uid;
+    print(userId);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -50,16 +53,18 @@ class SettingsScreen extends StatelessWidget {
                   const MySectionHeading(title: 'Настройки аккаунта'),
                   const SizedBox(height: MySizes.spaceBtwSections,),
 
-                  SettingsMenuTile(icon: Iconsax.safe_home, title: 'Адреса', subtitle: 'Set shopping delivery address',onTap: () => Get.to(() => const UserAddressScreen()),),
-                  SettingsMenuTile(icon: Iconsax.shopping_cart, title: 'Корзина', subtitle: 'Add, remove products and move to checkout',onTap: () => Get.to(() => const CartScreen()),),
-                  SettingsMenuTile(icon: Iconsax.bag_tick, title: 'Заказы', subtitle: 'In-progress and completed orders',onTap: () => Get.to(() => const OrderScreen()),),
-                  SettingsMenuTile(icon: Iconsax.discount_shape, title: 'Купоны', subtitle: 'List of all the discounted coupons',onTap: (){},),
+                  SettingsMenuTile(icon: Iconsax.safe_home, title: 'Адреса', subtitle: 'Установите адрес доставки',onTap: () => Get.to(() => const UserAddressScreen()),),
+                  SettingsMenuTile(icon: Iconsax.shopping_cart, title: 'Корзина', subtitle: 'Добавляйте, удаляйте товары и переходите к оформлению заказа',onTap: () => Get.to(() => const CartScreen()),),
+                  SettingsMenuTile(icon: Iconsax.bag_tick, title: 'Заказы', subtitle: 'Незавершенные и выполненные заказы',onTap: () => Get.to(() => const OrderScreen()),),
 
                   ///app settings
-                  const SizedBox(height: MySizes.spaceBtwSections,),
-                  const MySectionHeading(title: 'Настройки приложения'),
-                  const SizedBox(height: MySizes.spaceBtwItems,),
-                  SettingsMenuTile(icon: Iconsax.document_upload, title: 'Загрузить данные', subtitle: 'Upload data to your cloud Firebase',onTap: () => CategoryRepository().uploadDummyData(DummyData.categories),),
+
+                  //SettingsMenuTile(icon: Iconsax.document_upload, title: 'Загрузить данные', subtitle: 'Загрузите данные в базу данных',onTap: () => CategoryRepository().uploadDummyData(DummyData.categories),),
+                  if (userId == 'zfsdeta9DMUwcMYemGP10XV9eiq2')
+                    const SizedBox(height: MySizes.spaceBtwSections,),
+                    const MySectionHeading(title: 'Настройки приложения'),
+                    const SizedBox(height: MySizes.spaceBtwItems,),
+                    SettingsMenuTile(icon: Iconsax.document_upload, title: 'Загрузить данные', subtitle: 'Загрузите данные в базу данных',onTap: () => CategoryRepository().uploadDummyData(DummyData.categories),),
 
                   const SizedBox(height: MySizes.spaceBtwSections,),
                   SizedBox(

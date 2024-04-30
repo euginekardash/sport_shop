@@ -59,4 +59,35 @@ class FirebaseStorageService extends GetxController{
       }
     }
   }
+  Future<void> uploadImage(XFile image) async{
+    try{
+      await _firebaseStorage.ref('Products/Images/${image.name}').putFile(File(image.path));
+    }catch(e){
+      if(e is FirebaseException){
+        throw 'Firebase Exception: ${e.message}';
+      } else if(e is SocketException){
+        throw 'Network Exception: ${e.message}';
+      } else if (e is PlatformException){
+        throw 'Platform Exception: ${e.message}';
+      }else{
+        throw 'Something went wrong';
+      }
+    }
+  }
+  Future<String> getDownloadUrl(String imageName) async{
+    try{
+      String downloadUrl = await _firebaseStorage.ref('Products/Images/$imageName').getDownloadURL();
+      return downloadUrl;
+    }catch(e){
+      if(e is FirebaseException){
+        throw 'Firebase Exception: ${e.message}';
+      } else if(e is SocketException){
+        throw 'Network Exception: ${e.message}';
+      } else if (e is PlatformException){
+        throw 'Platform Exception: ${e.message}';
+      }else{
+        throw 'Something went wrong';
+      }
+    }
+  }
 }

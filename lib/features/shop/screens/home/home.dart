@@ -34,8 +34,8 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: MySizes.spaceBtwSections,),
 
                   ///searchbar
-                  MySearchContainer(text: 'Поиск',),
-                  SizedBox(height: MySizes.spaceBtwSections,),
+                  //MySearchContainer(text: 'Поиск',),
+                  //SizedBox(height: MySizes.spaceBtwSections,),
 
 
                   Padding(
@@ -43,11 +43,11 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       ///Heading
-                      MySectionHeading(title: 'Популярные категории', showActionButton: false, textColor: Colors.white,),
-                      SizedBox(height: MySizes.spaceBtwItems,),
+                      //MySectionHeading(title: 'Популярные категории', showActionButton: false, textColor: Colors.white,),
+                      //SizedBox(height: MySizes.spaceBtwItems,),
 
                       ///Categories
-                      MyHomeCategories(),
+                      //MyHomeCategories(),
                     ],
                   ),
                   ),

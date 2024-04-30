@@ -36,9 +36,9 @@ class LoginScreen extends StatelessWidget {
                     image: AssetImage(dark ? MyImages.darkAppLogo : MyImages.lightAppLogo),
                   ),
                   const SizedBox(height: MySizes.sm,),
-                  Text("Welcome back!", style: Theme.of(context).textTheme.headlineMedium,),
+                  Text("Добро пожаловать!", style: Theme.of(context).textTheme.headlineMedium,),
                   const SizedBox(height: MySizes.sm,),
-                  Text("Discover Limitless choices and unmatched convenience.", style: Theme.of(context).textTheme.bodyMedium,),
+                  Text("Откройте для себя безграничный выбор и непревзойденное удобство.", style: Theme.of(context).textTheme.bodyMedium,),
                 ],
               ),
               
@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                         controller: controller.password,
                         obscureText: controller.hidePassword.value,
                         decoration: InputDecoration(
-                          labelText: "Password",
+                          labelText: "Пароль",
                           prefixIcon: const Icon(Iconsax.password_check),
                           suffixIcon: IconButton(
                             onPressed: () => controller.hidePassword.value = !controller.hidePassword.value,
@@ -88,22 +88,22 @@ class LoginScreen extends StatelessWidget {
                                     value: controller.rememberMe.value,
                                     onChanged: (value) => controller.rememberMe
                                         .value = !controller.rememberMe.value)),
-                                const Text("Remember me"),
+                                const Text("Запомнить меня"),
                           ],
                         ),
 
                         ///Forget password
-                        TextButton(onPressed: ()=> Get.to(()=> const ForgetPassword()), child: const Text("Forget password?"))
+                        TextButton(onPressed: ()=> Get.to(()=> const ForgetPassword()), child: const Text("Забыли пароль?"))
                       ],
                     ),
                     const SizedBox(height: MySizes.spaceBtwSections,),
 
                     ///Sign in button
-                    SizedBox(width: double.infinity ,child: ElevatedButton(onPressed: () => controller.emailAndPasswordSignIn(), child: const Text("Sign in"))),
+                    SizedBox(width: double.infinity ,child: ElevatedButton(onPressed: () => controller.emailAndPasswordSignIn(), child: const Text("Войти"))),
                     const SizedBox(height: MySizes.spaceBtwItems,),
 
                     ///Create account button
-                    SizedBox(width: double.infinity ,child: OutlinedButton(onPressed: () => Get.to(() => const SignupScreen()), child: const Text("Create Account"))),
+                    SizedBox(width: double.infinity ,child: OutlinedButton(onPressed: () => Get.to(() => const SignupScreen()), child: const Text("Создать аккаунт"))),
 
                   ],
                 ),
@@ -114,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Flexible(child: Divider(color: dark ? MyColors.darkGrey: MyColors.grey, thickness: 0.5, indent: 60, endIndent: 5,)),
-                  Text("or SIGN IN with", style: Theme.of(context).textTheme.labelMedium,),
+                  Text("или ВОЙТИ с", style: Theme.of(context).textTheme.labelMedium,),
                   Flexible(child: Divider(color: dark ? MyColors.darkGrey: MyColors.grey, thickness: 0.5, indent: 5, endIndent: 60,)),
                 ],
               ),

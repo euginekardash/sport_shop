@@ -1,8 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sport_shop/data/repositories/product/product_repository.dart';
+import 'package:sport_shop/features/shop/models/brand_model.dart';
 import 'package:sport_shop/features/shop/models/product_model.dart';
 import 'package:sport_shop/utils/constants/enums.dart';
 import 'package:sport_shop/utils/popups/loaders.dart';
+
+import '../../../utils/helpers/network_manager.dart';
+import '../../../utils/popups/full_screen_loader.dart';
 
 class ProductController extends GetxController{
   static ProductController get instance => Get.find();
@@ -16,6 +21,8 @@ class ProductController extends GetxController{
     fetchFeaturedProducts();
     super.onInit();
   }
+
+
 
   void fetchFeaturedProducts() async{
     try{
@@ -78,4 +85,6 @@ class ProductController extends GetxController{
   String getProductStockStatus(int stock){
     return stock > 0 ? 'In Stock' : 'Out of Stock';
   }
+
+
 }

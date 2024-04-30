@@ -26,15 +26,16 @@ class MyTermsAndConditionCheckBox extends StatelessWidget {
                 onChanged: (value) => controller.privacyPolicy.value = !controller.privacyPolicy.value))),
         const SizedBox(width: MySizes.spaceBtwItems,),
         Text.rich(TextSpan(
+
             children: [
-              TextSpan(text: "I agree to ", style: Theme.of(context).textTheme.bodySmall),
-              TextSpan(text: "Privacy Policy", style: Theme.of(context).textTheme.bodyMedium!.apply(
+              TextSpan(text: "Я согласен с  ", style: Theme.of(context).textTheme.bodySmall),
+              /*TextSpan(text: "Политика конфеденциальности", style: Theme.of(context).textTheme.bodyMedium!.apply(
                 color: dark ? MyColors.white : MyColors.primary,
                 decoration: TextDecoration.underline,
                 decorationColor: dark ? MyColors.white : MyColors.primary,
-              )),
-              TextSpan(text: " and ", style: Theme.of(context).textTheme.bodySmall),
-              TextSpan(text: "Terms of use", style: Theme.of(context).textTheme.bodyMedium!.apply(
+              )),*/
+              //TextSpan(text: " и ", style: Theme.of(context).textTheme.bodySmall),
+              TextSpan(text: "Условия использования", style: Theme.of(context).textTheme.bodyMedium!.apply(
                 color: dark ? MyColors.white : MyColors.primary,
                 decoration: TextDecoration.underline,
                 decorationColor: dark ? MyColors.white : MyColors.primary,

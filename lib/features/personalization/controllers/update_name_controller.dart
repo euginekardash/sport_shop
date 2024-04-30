@@ -29,7 +29,7 @@ class UpdateNameController extends GetxController{
 
   Future<void> updateUserName() async{
     try{
-      MyFullScreenLoader.openLoadingDialog('We are updating your information...', 'assets/images/animations/loading.json');
+      MyFullScreenLoader.openLoadingDialog('Изменяем вашу информацию...', 'assets/images/animations/loading.json');
 
       final isConnected = await NetworkManager.instance.isConnected();
       if(!isConnected) {
@@ -50,7 +50,7 @@ class UpdateNameController extends GetxController{
 
       MyFullScreenLoader.stopLoading();
 
-      MyLoaders.successSnackBar(title: 'Congratulations', message: 'Your name has been updated');
+      MyLoaders.successSnackBar(title: 'Поздравляем', message: 'Ваше имя изменено');
 
       Get.off(() => const ProfileScreen());
     }catch(e){

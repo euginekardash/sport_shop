@@ -1,7 +1,7 @@
 class MyValidator{
   static String? validateEmptyText(String? fieldName, String? value){
     if(value == null || value.isEmpty){
-      return'$fieldName is required.';
+      return'$fieldName ожидается';
     }
 
     return null;
@@ -9,13 +9,13 @@ class MyValidator{
 
   static String? validateEmail(String? value){
     if(value == null || value.isEmpty){
-      return 'Email is required.';
+      return 'Email ожидается';
     }
 
     final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
     if(!emailRegExp.hasMatch(value)){
-      return 'Invalid email address.';
+      return 'Неправильный Email';
     }
 
     return null;
@@ -23,23 +23,23 @@ class MyValidator{
 
   static String? validatePassword(String? value){
     if(value == null || value.isEmpty){
-      return 'Password is required.';
+      return 'Пароль ожидается.';
     }
 
     if(value.length < 6){
-      return 'Password must be at least 6 characters long.';
+      return 'Пароль должен иметь минимум 6 символов';
     }
 
     if(!value.contains(RegExp(r'[A-Z]'))){
-      return 'Password must contain at least one uppercase letter.';
+      return 'Ваш пароль должен содержать хотя бы одну заглавную букву';
     }
 
     if(!value.contains(RegExp(r'[0-9]'))){
-      return 'Password must contain at least one number.';
+      return 'Ваш пароль должен содержать хотя бы одну цифру';
     }
 
     if(!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))){
-      return 'Password must contain at least one special character.';
+      return 'Пароль должен содержать хотя бы одну цифру';
     }
 
     return null;
@@ -47,14 +47,14 @@ class MyValidator{
 
   static String? phoneNumber(String? value){
     if(value == null || value.isEmpty){
-      return 'Phone number is required.';
+      return 'Номер телефона ожидается';
     }
 
     //10 numbers
     final phoneRegExp = RegExp(r'^\d{12}$');
 
     if(!phoneRegExp.hasMatch(value)){
-      return "Invalid phone number format (12 required)";
+      return "Неверный формат номера телефона (12 цифр)";
     }
 
     return null;

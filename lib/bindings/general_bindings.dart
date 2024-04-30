@@ -4,6 +4,8 @@ import 'package:sport_shop/features/shop/controllers/product/checkout_controller
 import 'package:sport_shop/features/shop/controllers/variation_controller.dart';
 import 'package:sport_shop/utils/helpers/network_manager.dart';
 
+import '../features/shop/controllers/category_controller.dart';
+
 class GeneralBindings extends Bindings{
   @override
   void dependencies() {
@@ -11,5 +13,7 @@ class GeneralBindings extends Bindings{
     Get.put(VariationController());
     Get.put(AddressController());
     Get.put(CheckoutController());
+    Get.put(CategoryController());
+
   }
 }

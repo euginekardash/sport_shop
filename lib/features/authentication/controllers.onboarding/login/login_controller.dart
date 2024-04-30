@@ -27,7 +27,7 @@ class LoginController extends GetxController{
 
   Future<void> emailAndPasswordSignIn() async {
     try {
-      MyFullScreenLoader.openLoadingDialog('Logging you in...', 'assets/images/animations/loading.json');
+      MyFullScreenLoader.openLoadingDialog('Вход...', 'assets/images/animations/loading.json');
 
       final isConnected = await NetworkManager.instance.isConnected();
       if(!isConnected){
@@ -58,7 +58,7 @@ class LoginController extends GetxController{
   Future<void> googleSignIn() async {
     try{
 
-      MyFullScreenLoader.openLoadingDialog('Logging you in...', 'assets/images/animations/loading.json');
+      MyFullScreenLoader.openLoadingDialog('Вход...', 'assets/images/animations/loading.json');
 
       final isConnected = await NetworkManager.instance.isConnected();
       if(!isConnected) {
