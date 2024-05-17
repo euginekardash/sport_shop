@@ -29,8 +29,8 @@ class SubCategoriesScreen extends StatelessWidget {
           child: Column(
             children: [
               ///Banner
-              MyRoundedImage(imageUrl: 'assets/images/banners/promo-banner-1.png', width: double.infinity, applyImageRadius: true,),
-              const SizedBox(height: MySizes.spaceBtwSections,),
+              //MyRoundedImage(imageUrl: 'assets/images/banners/promo-banner-1.png', width: double.infinity, applyImageRadius: true,),
+              //const SizedBox(height: MySizes.spaceBtwSections,),
 
               ///sub
               FutureBuilder(

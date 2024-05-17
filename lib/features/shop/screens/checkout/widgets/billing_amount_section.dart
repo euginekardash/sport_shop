@@ -17,7 +17,7 @@ class BillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Цена продуктов', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('$subTotal', style: Theme.of(context).textTheme.bodyMedium,),
+            Text('$subTotal р.', style: Theme.of(context).textTheme.bodyMedium,),
           ],
         ),
         const SizedBox(height: MySizes.spaceBtwItems / 2,),
@@ -27,7 +27,7 @@ class BillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Стоимость доставки', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('${MyPricingCalculator.calculateShippingCost(subTotal, "руб")}', style: Theme.of(context).textTheme.labelLarge,),
+            Text('${MyPricingCalculator.calculateShippingCost(subTotal, "руб")} р.', style: Theme.of(context).textTheme.labelLarge,),
           ],
         ),
         const SizedBox(height: MySizes.spaceBtwItems / 2,),
@@ -37,7 +37,7 @@ class BillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('НДС', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('${MyPricingCalculator.calculateTax(subTotal, 'руб')}', style: Theme.of(context).textTheme.labelLarge,),
+            Text('${MyPricingCalculator.calculateTax(subTotal, 'руб')} р.', style: Theme.of(context).textTheme.labelLarge,),
           ],
         ),
 
@@ -48,7 +48,7 @@ class BillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Итого', style: Theme.of(context).textTheme.bodyMedium,),
-            Text('${MyPricingCalculator.calculateTotalPrice(subTotal, 'руб')}', style: Theme.of(context).textTheme.titleLarge,),
+            Text('${MyPricingCalculator.calculateTotalPrice(subTotal, 'руб')} р.', style: Theme.of(context).textTheme.titleLarge,),
           ],
         ),
       ],

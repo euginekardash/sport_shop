@@ -51,33 +51,33 @@ class ProductDetail extends StatelessWidget {
                if(product.productType == ProductType.variable.toString()) const SizedBox(height: MySizes.spaceBtwSections,),
 
                ///checkout button
-               SizedBox(width: double.infinity, child: ElevatedButton(onPressed: (){}, child: Text('Checkout'))),
-               const SizedBox(height: MySizes.spaceBtwSections,),
+               // SizedBox(width: double.infinity, child: ElevatedButton(onPressed: (){}, child: Text('Checkout'))),
+               // const SizedBox(height: MySizes.spaceBtwSections,),
 
                ///description
-               const MySectionHeading(title: 'Description'),
+               const MySectionHeading(title: 'Описание'),
                const SizedBox(height: MySizes.spaceBtwItems,),
                ReadMoreText(
                  product.description ?? '',
                  trimLines: 2,
                  trimMode: TrimMode.Line,
-                 trimCollapsedText: ' Show more',
-                 trimExpandedText: ' Less',
+                 trimCollapsedText: ' Больше',
+                 trimExpandedText: ' Меньше',
                  moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                  lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                ),
 
                ///reviews
-               const Divider(),
-               const SizedBox(height: MySizes.spaceBtwItems,),
-               Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                 children: [
-                   const MySectionHeading(title: 'Reviews(199)'),
-                   IconButton(onPressed: () => Get.to(() => const ProductReviewsScreen()), icon: const Icon(Iconsax.arrow_right_3, size: 18,))
-                 ],
-               ),
-               const SizedBox(height: MySizes.spaceBtwSections,),
+               // const Divider(),
+               // const SizedBox(height: MySizes.spaceBtwItems,),
+               // Row(
+               //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               //   children: [
+               //     const MySectionHeading(title: 'Reviews(199)'),
+               //     IconButton(onPressed: () => Get.to(() => const ProductReviewsScreen()), icon: const Icon(Iconsax.arrow_right_3, size: 18,))
+               //   ],
+               // ),
+               // const SizedBox(height: MySizes.spaceBtwSections,),
              ],
            ),
          ),

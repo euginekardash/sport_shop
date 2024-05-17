@@ -45,8 +45,6 @@ class LoginController extends GetxController{
         localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
       }
 
-      final userCredentials = await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
-
       MyFullScreenLoader.stopLoading();
       AuthenticationRepository.instance.screenRedirect();
     } catch(e) {

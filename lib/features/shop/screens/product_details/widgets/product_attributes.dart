@@ -33,7 +33,7 @@ class ProductAttributes extends StatelessWidget {
                 ///title
                 Row(
                   children: [
-                    const MySectionHeading(title: 'Variation', showActionButton: false,),
+                    const MySectionHeading(title: 'Вариация', showActionButton: false,),
                     const SizedBox(width: MySizes.spaceBtwItems,),
 
                     Column(
@@ -41,10 +41,10 @@ class ProductAttributes extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const MyProductTitleText(title: 'Price: ', smallSize: true,),
+                            const MyProductTitleText(title: 'Цена: ', smallSize: true,),
                             ///actual price
                             if(controller.selectedVariation.value.salePrice > 0)
-                            Text('\$${controller.selectedVariation.value.price}', style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),),
+                            Text('${controller.selectedVariation.value.price}р.', style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),),
 
                             const SizedBox(width: MySizes.spaceBtwItems,),
                             ///sale price
@@ -55,8 +55,8 @@ class ProductAttributes extends StatelessWidget {
                         ///stock
                         Row(
                           children: [
-                            const MyProductTitleText(title: 'Stock : ', smallSize: true,),
-                            Text(controller.variationStockStatus.value, style: Theme.of(context).textTheme.titleMedium,),
+                            const MyProductTitleText(title: 'Наличие : ', smallSize: true,),
+                            Text(controller.variationStockStatus.value == 'In Stock' ? 'В наличии' : 'Нет в наличии', style: Theme.of(context).textTheme.titleMedium,),
                           ],
                         )
                       ],
@@ -68,7 +68,7 @@ class ProductAttributes extends StatelessWidget {
                 MyProductTitleText(
                   title: controller.selectedVariation.value.description ?? '',
                   smallSize: true,
-                  maxLines: 4,
+                  maxLines: 2,
                 ),
               ],
             ),
@@ -81,7 +81,7 @@ class ProductAttributes extends StatelessWidget {
             children: product.productAttributes!.map((attribute) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MySectionHeading(title: attribute.name ?? ''),
+                MySectionHeading(title: attribute.name == 'Size' ? 'Рамер' : 'Цвет' ?? ''),
                 const SizedBox(height: MySizes.spaceBtwItems/2,),
                 Obx(()=> Wrap(
                     spacing: 8,

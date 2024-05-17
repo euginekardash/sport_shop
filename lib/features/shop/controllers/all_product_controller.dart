@@ -13,7 +13,7 @@ class AllProductsController extends GetxController{
 
   Future<List<ProductModel>> fetchProductsByQuery(Query? query)async{
     try{
-      if(query == null){ return [];}
+      if(query == null) return [];
 
       final products = await repository.fetchProductsByQuery(query);
 

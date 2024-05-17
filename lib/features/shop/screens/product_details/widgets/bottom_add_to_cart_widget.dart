@@ -49,7 +49,7 @@ class BottomAddToCart extends StatelessWidget {
                 backgroundColor: Colors.black,
                 side: BorderSide(color: Colors.black),
               ),
-                child: const Text('Add to cart'),
+                child: const Text('В корзину'),
             )
           ],
         ),

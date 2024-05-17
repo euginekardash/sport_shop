@@ -43,11 +43,11 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       ///Heading
-                      //MySectionHeading(title: 'Популярные категории', showActionButton: false, textColor: Colors.white,),
-                      //SizedBox(height: MySizes.spaceBtwItems,),
+                      MySectionHeading(title: 'Популярные категории', showActionButton: false, textColor: Colors.white,),
+                      SizedBox(height: MySizes.spaceBtwItems,),
 
                       ///Categories
-                      //MyHomeCategories(),
+                      MyHomeCategories(),
                     ],
                   ),
                   ),
@@ -69,7 +69,10 @@ class HomeScreen extends StatelessWidget {
                     title: 'Популярные продукты',
                     onPressed: () => Get.to(() => AllProducts(
                       title: 'Популярные продукты',
-                      futureMethod: controller.fetchAllFeaturedProducts(),)),
+                      futureMethod: controller.fetchAllFeaturedProducts(),
+                        //query: FirebaseFirestore.instance.collection('Products').where('IsFeatured', isEqualTo: true).limit(6),
+                    ),
+                    ),
                     showActionButton: true,),
                   const SizedBox(height: MySizes.spaceBtwItems,),
 

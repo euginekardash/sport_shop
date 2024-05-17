@@ -41,7 +41,7 @@ class ProductController extends GetxController{
   Future<List<ProductModel>> fetchAllFeaturedProducts() async{
     try{
 
-      final products = await productRepository.getFeaturedProducts();
+      final products = await productRepository.getAllFeaturedProducts();
       return products;
     }catch(e){
       MyLoaders.errorSnackBar(title: 'Oh snap', message: e.toString());
@@ -69,7 +69,7 @@ class ProductController extends GetxController{
       if(smallerPrice.isEqual(largestPrice)) {
         return largestPrice.toString();
       } else{
-        return '$smallerPrice - \$$largestPrice';
+        return '$smallerPrice - $largestPrice';
       }
     }
   }

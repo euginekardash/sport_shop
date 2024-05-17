@@ -135,7 +135,7 @@ class ProductCardVertical extends StatelessWidget {
                       return Container(
                       decoration: BoxDecoration(
                         color:productQuantityInCart > 0 ? MyColors.primary : MyColors.dark,
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(MySizes.cardRadiusMd),
                           bottomRight: Radius.circular(MySizes.productImageRadius),
                         ),

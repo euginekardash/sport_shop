@@ -28,17 +28,17 @@ class ProductMetaData extends StatelessWidget {
         Row(
           children: [
             ///sale tag
-            MyRoundedContainer(
-              radius: MySizes.sm,
-              backgroundColor: MyColors.secondary.withOpacity(0.8),
-              padding: const EdgeInsets.symmetric(horizontal: MySizes.sm, vertical: MySizes.xs),
-              child: Text("$salePercentage%" ,style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.black),),
-            ),
-            const SizedBox(width: MySizes.spaceBtwItems,),
+            // MyRoundedContainer(
+            //   radius: MySizes.sm,
+            //   backgroundColor: MyColors.secondary.withOpacity(0.8),
+            //   padding: const EdgeInsets.symmetric(horizontal: MySizes.sm, vertical: MySizes.xs),
+            //   child: Text("$salePercentage%" ,style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.black),),
+            // ),
+            // const SizedBox(width: MySizes.spaceBtwItems,),
 
             ///price
             if(product.productType == ProductType.single.toString() && product.salePrice > 0)
-              Text('\$${product.price}', style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),),
+              Text('${product.price}р.', style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),),
             if(product.productType == ProductType.single.toString() && product.salePrice > 0)
               const SizedBox(width: MySizes.spaceBtwItems,),
             MyProductPriceText(price: controller.getProductPrice(product), isLarge: true),
@@ -51,19 +51,19 @@ class ProductMetaData extends StatelessWidget {
         const SizedBox(height: MySizes.spaceBtwItems/1.5,),
 
         ///stock status
-        Row(
-          children: [
-            const MyProductTitleText(title: 'Status'),
-            const SizedBox(width: MySizes.spaceBtwItems,),
-            Text(controller.getProductStockStatus(product.stock), style: Theme.of(context).textTheme.titleMedium,),
-          ],
-        ),
+        // Row(
+        //   children: [
+        //     const MyProductTitleText(title: 'Наличие'),
+        //     const SizedBox(width: MySizes.spaceBtwItems,),
+        //     Text(controller.getProductStockStatus(product.stock), style: Theme.of(context).textTheme.titleMedium,),
+        //   ],
+        // ),
         const SizedBox(height: MySizes.spaceBtwItems/1.5,),
 
         ///brand
         Row(
           children: [
-            MyCircularImage(image: product.brand != null ? product.brand!.image : '', width: 32, height: 32, overlayColor: dark ? Colors.white : Colors.black,),
+            MyCircularImage(isNetworkImage: true, image: product.brand != null ? product.brand!.image : '', width: 32, height: 32, overlayColor: dark ? Colors.white : Colors.black,),
             MyBrandTitleWithVerifiedIcon(title: product.brand != null ? product.brand!.name : '', brandTextSize: TextSizes.medium,),
           ],
         ),

@@ -43,8 +43,8 @@ class CheckoutScreen extends StatelessWidget {
             SizedBox(height: MySizes.spaceBtwSections,),
 
             ///coupon
-            CouponCode(),
-            SizedBox(height: MySizes.spaceBtwSections,),
+            // CouponCode(),
+            // SizedBox(height: MySizes.spaceBtwSections,),
 
             ///billing section
             MyRoundedContainer(
@@ -76,7 +76,7 @@ class CheckoutScreen extends StatelessWidget {
         padding: const EdgeInsets.all(MySizes.defaultSpace),
         child: ElevatedButton(onPressed: subTotal > 0 ? () => orderController.processOrder(totalAmount)
             : () => MyLoaders.warningSnackBar(title: 'Корзина пуста', message: 'Для начала заполните корзину'),
-          child: Text('К оформению $totalAmount'),),
+          child: Text('К оформению $totalAmount р.'),),
       ),
     );
   }
