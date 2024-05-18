@@ -32,8 +32,8 @@ class MyCategoryTab extends StatelessWidget {
           child: Column(
             children: [
               ///brands
-              CategoryBrands(category: category),
-              const SizedBox(height: MySizes.spaceBtwItems,),
+              //CategoryBrands(category: category),
+              //const SizedBox(height: MySizes.spaceBtwItems,),
 
               ///products
               FutureBuilder(

@@ -32,12 +32,12 @@ class AllProductsController extends GetxController{
       case 'Название' :
         products.sort((a, b) => a.title.compareTo(b.title));
         break;
-      case 'Высокая цена' :
-        products.sort((a, b) => b.price.compareTo(a.price));
-        break;
-      case 'Низкая цена' :
-        products.sort((a, b) => a.price.compareTo(b.price));
-        break;
+      // case 'Высокая цена' :
+      //   products.sort((a, b) => b.price.compareTo(a.price));
+      //   break;
+      // case 'Низкая цена' :
+      //   products.sort((a, b) => a.price.compareTo(b.price));
+      //   break;
       case 'Скидка' :
         products.sort((a, b) {
           if(b.salePrice > 0){
